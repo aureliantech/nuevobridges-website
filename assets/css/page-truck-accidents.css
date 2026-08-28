@@ -1,0 +1,481 @@
+/* Truck accidents — page-specific objects.
+   Shared chrome, type scale, buttons and section rhythm live in site.css.
+   The ledger, the track, the roads list and the call-now band are the
+   same objects the H-2A and habeas pages use, so the three practice
+   pages read as one site. */
+
+/* ============================================================
+   HERO
+   Same construction as every other hero. The headline is a sentence, so
+   it sits a step below the site's h1 scale to keep the call button above
+   the fold on a phone.
+   ============================================================ */
+/* A road heading into arid mountains - close to the view east of Las
+   Cruces toward the Organs. The page is New Mexico only, so the hero
+   should look like New Mexico, and an empty highway is the quiet
+   version of this subject. A wreck photograph is the visual signature
+   of billboard injury advertising and would undo everything the type
+   and the palette are buying.
+
+   Held right so the headline lands on the open left of the frame, and
+   graded down hard because the file is bright daylight and the type is
+   white. */
+.page-truck .sec-hero .photo-plane--photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% 52%;
+  filter: saturate(0.68) contrast(1.06) brightness(0.6);
+}
+.page-truck .sec-hero .photo-plane--photo::before,
+.page-truck .sec-hero .photo-plane--photo::after,
+.page-truck .sec-hero .photo-plane--photo .photo-plane__label { display: none; }
+
+.page-truck .hero-copy { max-width: 40rem; }
+.page-truck .hero-copy .copy-h1 {
+  font-size: clamp(32px, 4.4vw, 58px);
+  line-height: 1.06;
+  text-indent: -0.02em;
+}
+.page-truck .hero-copy .copy-lead { max-width: 46ch; }
+.page-truck .hero-note {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: rgba(217, 227, 242, 0.82);
+}
+
+/* ============================================================
+   CALL NOW
+   Light ground directly under a dark hero, so the section arrives with
+   an edge instead of extending the hero. Contrast is what makes a
+   section land - not height, and not a bigger button.
+   ============================================================ */
+.page-truck .callnow {
+  background: var(--color-paper);
+  border-bottom: 1px solid rgba(0, 26, 77, 0.08);
+  padding: clamp(52px, 6.5vw, 88px) 0;
+}
+.page-truck .callnow__inner { text-align: center; }
+.page-truck .callnow__inner .copy-h2 {
+  font-size: clamp(27px, 3.4vw, 44px);
+  max-width: 19ch;
+  margin: 0 auto 14px;
+}
+.page-truck .callnow__inner .copy-lead {
+  max-width: 48ch;
+  margin: 0 auto;
+}
+.page-truck .callnow__cta {
+  margin-top: clamp(26px, 3.2vw, 36px);
+  padding: 22px 44px;
+  font-size: 17px;
+  letter-spacing: 0.03em;
+}
+.page-truck .callnow__micro {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   WHY THESE ARE DIFFERENT
+   The site's process pattern. This is the page's core argument - that a
+   truck case is a different animal from a car case - and a numbered
+   list is how this site explains anything with parts.
+   ============================================================ */
+.page-truck .sec-courts {
+  background: var(--navy-900);
+  color: var(--color-paper);
+}
+.page-truck .sec-courts .copy-h2 { max-width: 15ch; }
+.page-truck .courts-cta { margin-top: clamp(26px, 3vw, 34px); }
+.page-truck .sec-courts .copy-card-h { max-width: 28ch; }
+
+/* ============================================================
+   EVIDENCE
+   Centred and open between two dense sections. This is the page's
+   urgency argument and the truest one available - data really is
+   overwritten and trucks really do go back into service - so it gets
+   air rather than competition.
+   ============================================================ */
+.page-truck .sec-evidence { background: var(--color-paper); }
+.page-truck .sec-evidence .copy-h2 {
+  max-width: 20ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-truck .sec-evidence .copy-lead {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 58ch;
+}
+.page-truck .evidence-cta { margin-top: clamp(24px, 3vw, 32px); }
+
+/* ============================================================
+   THE ADJUSTER
+   Useful before it is persuasive, which is why it earns its place: it
+   tells someone what to do tonight, whether or not they ever call.
+
+   Built on the same crimson left rule the H-2A statements use, with the
+   instruction set in ink and the explanation beneath it in muted - so
+   the three read at a glance and reward a second pass.
+   ============================================================ */
+.page-truck .sec-adjuster { background: var(--color-mist); }
+.page-truck .adj-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(36px, 5vw, 76px);
+  align-items: center;
+}
+.page-truck .adj-head .copy-h2 { max-width: 18ch; }
+.page-truck .adj-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.4vw, 24px);
+}
+.page-truck .adj-item {
+  padding: 3px 0 4px 22px;
+  border-left: 2px solid var(--color-crimson);
+}
+.page-truck .adj-item__lead {
+  display: block;
+  font-size: clamp(16px, 1.5vw, 18px);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+.page-truck .adj-item__body {
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+/* The last one is the ask, so it takes the navy field the site uses for
+   a dominant beat - same left rule, so it reads as the third item
+   rather than a different object. */
+.page-truck .adj-item--key {
+  background: var(--color-navy-deep);
+  padding: 20px 24px 21px 22px;
+  margin-top: clamp(6px, 1vw, 10px);
+}
+.page-truck .adj-item--key .adj-item__lead { color: var(--color-paper); }
+.page-truck .adj-item--key .adj-item__body { color: var(--navy-100); }
+
+/* ============================================================
+   ROAD BAND
+   A full-bleed strip immediately before the roads section, so a desert
+   highway sets up the interstate numbers rather than decorating them.
+   It also breaks the page's longest run of type.
+
+   A road is the one subject a 3.6:1 letterbox cannot ruin - which is
+   why this band works where the H-2A one kept failing. Height is capped
+   rather than derived from a ratio, so it stays a breath on a wide
+   monitor instead of inflating into a second hero. The file is
+   requested near the band's own proportions so the browser barely
+   crops.
+   ============================================================ */
+.road-band {
+  position: relative;
+  overflow: hidden;
+}
+.page-truck .road-band__media {
+  position: relative;
+  width: 100%;
+  height: clamp(220px, 26vw, 380px);
+  background: var(--navy-800);
+}
+.page-truck .road-band__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 54%;
+  filter: saturate(0.78) contrast(1.04) brightness(0.94);
+}
+
+/* ============================================================
+   NEW MEXICO ROADS
+   The page's distinctive section, and the direct equivalent of the
+   detention facilities list on the habeas page. Someone searching after
+   a crash on I-25 is searching a road number; seeing it set in Lora,
+   with the stretch named underneath, is the moment they know the page
+   is about them. It is also how the page gets found.
+   ============================================================ */
+.page-truck .sec-roads { background: var(--color-paper); }
+.page-truck .fac-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(36px, 5vw, 76px);
+  align-items: center;
+}
+.page-truck .fac-head .copy-h2 { max-width: 14ch; margin-bottom: 20px; }
+.page-truck .fac-head .copy-body { font-size: 16px; max-width: 46ch; }
+.page-truck .fac-note { margin-top: 12px; color: var(--color-muted); }
+.page-truck .fac-cta { margin-top: clamp(24px, 3vw, 32px); }
+.page-truck .fac-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.4vw, 26px);
+}
+.page-truck .fac-item {
+  padding: 4px 0 6px 24px;
+  border-left: 2px solid var(--color-crimson);
+}
+.page-truck .fac-item__name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+.page-truck .fac-item__place {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   WHAT HAPPENS WHEN YOU CALL
+   A track: one rule across the section, interrupted by the numerals
+   sitting on it. Step 03 is doing the real work here - naming the paid
+   consultation and then immediately saying the case itself costs
+   nothing up front turns the page's one friction point into a
+   demonstration of straight dealing.
+   ============================================================ */
+.page-truck .sec-steps { background: var(--color-mist); }
+.page-truck .sec-steps .copy-h2 { max-width: 22ch; }
+.page-truck .track {
+  position: relative;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3.5vw, 48px);
+}
+.page-truck .track::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 16px;
+  height: 1px;
+  background: var(--color-line);
+}
+.page-truck .track__step { position: relative; }
+.page-truck .track__num {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-crimson);
+  background: var(--color-mist);
+  padding-right: 14px;
+  margin-bottom: 16px;
+}
+.page-truck .track__t {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-ink);
+  max-width: 34ch;
+}
+.page-truck .sec-steps .sec-cta { margin-top: clamp(32px, 4vw, 48px); }
+
+/* ============================================================
+   THE ATTORNEY
+   No portrait yet, so the plate holds the firm's monogram on the navy
+   portrait grade rather than a grey box stamped PLACEHOLDER. Drop an
+   <img> in place of the mark when the photograph arrives.
+   ============================================================ */
+.page-truck .sec-gina { background: var(--color-paper); }
+.page-truck .gina-frame { overflow: hidden; }
+.page-truck .gina-frame .photo-plane__label { display: none; }
+.page-truck .gina-frame__mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(96px, 26%, 150px);
+  height: auto;
+  transform: translate(-50%, -50%);
+  opacity: 0.22;
+  z-index: 2;
+}
+.page-truck .gina-media .gina-name {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.2vw, 27px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  margin: 22px 0 4px;
+}
+.page-truck .gina-media .gina-role {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+  margin: 0;
+}
+.page-truck .attorney-copy .copy-h2 {
+  font-size: clamp(26px, 3vw, 40px);
+  max-width: 22ch;
+  margin-bottom: clamp(24px, 3vw, 32px);
+}
+.page-truck .attorney-copy .soft-link {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 11px 0;
+}
+.page-truck .ledger { border-top: 1px solid var(--color-line); }
+.page-truck .ledger__row {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 20px;
+  align-items: baseline;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+.page-truck .ledger__k {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+}
+.page-truck .ledger__v {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--color-ink);
+}
+
+/* ============================================================
+   FAQ
+   Same correction as the other two pages: a closed item carried 44px of
+   empty panel because the answer's bottom margin sits outside the
+   collapsing grid row. Worth promoting into site.css.
+   ============================================================ */
+.page-truck .sec-faq { background: var(--color-mist); }
+.page-truck .faq-item__a {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  transition: opacity 0.35s ease, transform 0.4s ease,
+    margin-bottom 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    padding-bottom 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.page-truck .faq-item.is-open .faq-item__a {
+  margin-bottom: 26px;
+  padding-bottom: 4px;
+}
+
+/* ============================================================
+   FINAL CALL
+   ============================================================ */
+.page-truck .final-inner .sec-rule {
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-truck .final-inner .copy-h1 {
+  font-size: clamp(32px, 4.6vw, 60px);
+  max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 900px) {
+  .page-truck .adj-layout,
+  .page-truck .fac-layout,
+  .page-truck .attorney-layout,
+  .page-truck .track {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .page-truck .fac-item__name { font-size: 22px; }
+  /* Shorter on a phone - it is a pause, not a panel. */
+  .page-truck .road-band__media { height: clamp(180px, 42vw, 240px); }
+
+  /* The track turns on its side: rule down the left, numerals on it,
+     copy indented past both. */
+  .page-truck .track { gap: 0; }
+  .page-truck .track::before {
+    left: 13px;
+    right: auto;
+    top: 6px;
+    bottom: 22px;
+    width: 1px;
+    height: auto;
+  }
+  .page-truck .track__step { padding: 0 0 26px 44px; }
+  .page-truck .track__step:last-child { padding-bottom: 0; }
+  .page-truck .track__num {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0 0 6px;
+    font-size: 22px;
+  }
+  .page-truck .track__t { max-width: none; }
+
+  .page-truck .gina-frame { aspect-ratio: 3 / 2; }
+  .page-truck .ledger__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+    padding: 14px 0;
+  }
+
+  .page-truck .sec-cta .cta-btn,
+  .page-truck .callnow__cta,
+  .page-truck .fac-cta,
+  .page-truck .courts-cta,
+  .page-truck .evidence-cta { width: 100%; text-align: center; }
+
+  /* The site hero is built for short headlines. Tighten the block so the
+     call button clears the fold. */
+  .page-truck .sec-hero { min-height: 0; }
+  .page-truck .hero-content {
+    padding-top: calc(var(--header-h) + 40px);
+    padding-bottom: clamp(40px, 7vh, 64px);
+  }
+  .page-truck .hero-brand { font-size: 22px; margin-bottom: 14px; }
+  .page-truck .hero-brand::after { margin-top: 12px; }
+  .page-truck .hero-copy .copy-lead { font-size: 16px; max-width: none; }
+  .page-truck .hero-copy .cta-btn { width: 100%; text-align: center; }
+  .page-truck .hero-media { transform: none !important; }
+}
+
+@media (max-width: 560px) {
+  /* site.css stacks the trust marks into a column below 560px; on a
+     landing page that wastes three lines above the call button. */
+  .page-truck .hero-trust {
+    flex-direction: row;
+    gap: 6px 0;
+    font-size: 12px;
+  }
+  .page-truck .hero-trust span { padding: 0; border-left: none; }
+  .page-truck .hero-trust span::before { display: none; }
+  .page-truck .hero-trust span:not(:last-child)::after {
+    content: "\00b7";
+    display: inline-block;
+    padding: 0 9px;
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-truck .hero-media { transform: none !important; }
+}

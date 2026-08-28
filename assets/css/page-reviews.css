@@ -1,0 +1,154 @@
+/* Reviews — page-unique objects (centered hero + stub quote grid)
+   Shared chrome/type/CTA/mid-cta/final live in site.css */
+
+/* —— Centered hero (vertically mid-viewport; no lead) —— */
+.page-reviews .sec-hero {
+  align-items: center;
+}
+.page-reviews .sec-hero .hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: clamp(72px, 10vh, 100px);
+  padding-bottom: clamp(72px, 10vh, 100px);
+}
+.page-reviews .hero-copy {
+  max-width: min(36rem, 94vw);
+  margin: 0 auto;
+}
+.page-reviews .hero-copy .copy-h1 {
+  max-width: none;
+  margin-bottom: 0;
+}
+.page-reviews .hero-copy .hero-brand {
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-reviews .hero-copy .hero-brand::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-reviews .hero-copy .eyebrow {
+  margin-bottom: 14px;
+}
+.page-reviews .hero-copy .eyebrow.on-dark {
+  color: var(--navy-200);
+}
+.page-reviews .hero-copy .cta-btn {
+  margin-top: 28px;
+}
+
+/* —— Editorial stub grid (not fake-testimonial cards) —— */
+.page-reviews .sec-review-grid {
+  background: var(--color-paper);
+  padding-top: clamp(56px, 8vw, 88px);
+  padding-bottom: clamp(48px, 6vw, 72px);
+}
+.page-reviews .review-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.page-reviews .review-tile {
+  position: relative;
+  padding: clamp(28px, 4vw, 40px) clamp(24px, 3vw, 36px) clamp(28px, 3.5vw, 36px);
+  background:
+    linear-gradient(180deg, var(--navy-50) 0%, var(--color-paper) 68%);
+  border-top: 1px solid rgba(0, 26, 77, 0.1);
+  border-bottom: 1px solid rgba(0, 26, 77, 0.08);
+  overflow: hidden;
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    box-shadow 0.35s ease;
+}
+.page-reviews .review-tile:hover {
+  border-top-color: rgba(152, 24, 0, 0.45);
+  box-shadow: 0 16px 40px rgba(0, 15, 46, 0.08);
+  transform: translateY(-3px);
+}
+.page-reviews .review-tile__mark {
+  position: absolute;
+  top: 0;
+  left: 12px;
+  font-family: var(--font-display);
+  font-size: 96px;
+  line-height: 1;
+  color: rgba(244, 217, 212, 0.9);
+  pointer-events: none;
+  user-select: none;
+}
+.page-reviews .review-tile blockquote {
+  position: relative;
+  z-index: 1;
+  margin: 28px 0 20px;
+  font-family: var(--font-display);
+  font-size: clamp(17px, 1.8vw, 20px);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--color-navy-deep);
+  letter-spacing: 0.01em;
+}
+.page-reviews .review-tile cite {
+  position: relative;
+  z-index: 1;
+  display: block;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--neutral-500);
+}
+.page-reviews .review-grid__note {
+  margin: 28px 0 0;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--neutral-500);
+  opacity: 0.85;
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+/* Stronger rise + stagger */
+.page-reviews .review-tile.reveal:not(.is-in) {
+  transform: translateY(36px);
+}
+.page-reviews .review-tile.reveal:nth-child(1) { transition-delay: 60ms; }
+.page-reviews .review-tile.reveal:nth-child(2) { transition-delay: 140ms; }
+.page-reviews .review-tile.reveal:nth-child(3) { transition-delay: 220ms; }
+.page-reviews .review-tile.reveal:nth-child(4) { transition-delay: 300ms; }
+
+@media (max-width: 720px) {
+  .page-reviews .review-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-reviews .hero-copy .copy-h1 {
+    font-size: clamp(28px, 7.2vw, 40px);
+  }
+  .page-reviews .review-tile__mark {
+    font-size: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-reviews .review-tile.reveal:not(.is-in) {
+    transform: none;
+  }
+  .page-reviews .review-tile.reveal {
+    transition-delay: 0ms;
+  }
+  .page-reviews .review-tile:hover {
+    transform: none;
+  }
+}

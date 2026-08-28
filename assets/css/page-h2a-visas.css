@@ -1,0 +1,724 @@
+/* H-2A landing page — page-specific objects.
+   Shared chrome, type scale, buttons and section rhythm live in site.css.
+   Everything here either (a) tunes a shared component for this page's
+   longer copy, or (b) is a list pattern the site did not already have.
+   Nothing invents a second visual language. */
+
+/* ============================================================
+   HERO
+   Same construction as every other hero on the site: full-bleed media,
+   scrim, copy bottom-left, trust row, scroll cue. Two things are
+   specific here — a real photograph instead of a placeholder plane, and
+   a sentence-length headline that needs a step down from the site's h1
+   scale so the call button still clears the fold on a phone.
+   ============================================================ */
+.page-h2a .sec-hero .photo-plane--photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Subjects sit right of centre, so the frame is held to the right and
+     the type on the left lands on open ground. */
+  object-position: 68% 50%;
+  /* Enough grade to sit in palette and to keep the headline legible over
+     the picture, without draining it. */
+  filter: saturate(0.85) contrast(1.05) brightness(0.82);
+}
+.page-h2a .sec-hero .photo-plane--photo::before,
+.page-h2a .sec-hero .photo-plane--photo::after,
+.page-h2a .sec-hero .photo-plane--photo .photo-plane__label {
+  display: none;
+}
+
+.page-h2a .hero-copy { max-width: 38rem; }
+.page-h2a .hero-copy .copy-h1 {
+  font-size: clamp(32px, 4.4vw, 60px);
+  line-height: 1.06;
+  /* Lora's cap side-bearing leaves the W hanging right of the eyebrow
+     and the button. Pull it back so the left edge is optically flush. */
+  text-indent: -0.035em;
+}
+.page-h2a .hero-copy .copy-lead { max-width: 42ch; }
+.page-h2a .hero-note {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: rgba(217, 227, 242, 0.82);
+}
+
+/* ============================================================
+   OFFRAMP — the exit for job seekers
+   A worker who lands here by mistake has to see one thing and press it,
+   so the action is a full-width block rather than a button parked in a
+   corner. It carries its own destination, which does two jobs: it makes
+   the target obvious before the click, and a government domain is the
+   most persuasive thing you can show someone looking for work.
+
+   Navy rather than crimson. Crimson is the farm owner's call button and
+   appears five times on this page; a second crimson block here would
+   make a grower stop and read something addressed to somebody else.
+   Navy is just as loud, and it belongs to the .gov destination.
+   ============================================================ */
+.page-h2a .offramp {
+  background: var(--color-mist);
+  border-top: 1px solid rgba(0, 26, 77, 0.08);
+  border-bottom: 1px solid rgba(0, 26, 77, 0.08);
+  padding: clamp(36px, 4.5vw, 56px) 0;
+}
+.page-h2a .offramp__row {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2.4vw, 28px);
+}
+/* Centred over the block it belongs to, and set in the body face rather
+   than Lora: this is an instruction, not a section heading a grower has
+   to weigh. Crimson because it has one job - to be seen by somebody who
+   is scrolling past. */
+.page-h2a .offramp__head { text-align: center; }
+.page-h2a .offramp__h {
+  margin: 0 auto;
+  max-width: 44ch;
+  font-family: var(--font-body);
+  font-size: clamp(17px, 1.6vw, 21px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.005em;
+  color: var(--color-crimson);
+  text-wrap: pretty;
+}
+.page-h2a .offramp__row { gap: clamp(16px, 2vw, 22px); }
+.page-h2a .offramp__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: clamp(24px, 2.8vw, 34px) 24px;
+  background: var(--navy-900);
+  color: var(--color-paper);
+  border-radius: 2px;
+  text-align: center;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.page-h2a .offramp__btn-main {
+  font-size: clamp(18px, 1.9vw, 23px);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+.page-h2a .offramp__btn:hover {
+  background: var(--color-crimson);
+  transform: translateY(-2px);
+}
+.page-h2a .offramp__btn:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-h2a .offramp__btn { transition: background 0.25s ease; }
+  .page-h2a .offramp__btn:hover { transform: none; }
+}
+
+/* —— The call button, repeated down the page —— */
+.page-h2a .sec-cta { margin-top: clamp(32px, 4vw, 48px); }
+
+/* ============================================================
+   PROBLEMS
+   Three equal columns starved all three: the headline swelled, the
+   beats were squeezed to a four-word measure, and the photograph
+   floated between them aligned to nothing.
+
+   Back to the site's two-column composition. The copy column carries
+   the heading and the beats, so both get a proper measure; the picture
+   is a full-height panel beside it, its top and bottom edges locked to
+   the copy rather than drifting. On a phone the same three parts stack
+   in reading order - heading, picture, situations - so the section
+   opens with something to look at and closes on the call button.
+   ============================================================ */
+.page-h2a .pain-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
+  grid-template-rows: auto 1fr;
+  column-gap: clamp(36px, 5vw, 72px);
+  row-gap: clamp(26px, 3.5vw, 40px);
+}
+/* Picture left, argument right. */
+.page-h2a .pain-head { grid-column: 2; grid-row: 1; }
+.page-h2a .pain-beats { grid-column: 2; grid-row: 2; }
+/* Spanning both rows is what locks the picture to the copy's height.
+   Nothing here is centred or floated. */
+.page-h2a .pain-media {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  overflow: hidden;
+  min-height: 460px;
+  background: var(--navy-800);
+}
+.page-h2a .pain-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Crew sits across the middle of the frame; a 3:4 crop from the centre
+     keeps them and drops the empty sky. */
+  object-position: 50% 46%;
+  filter: saturate(0.86) contrast(1.04);
+}
+
+.page-h2a .sec-pain .copy-h2 {
+  font-size: clamp(30px, 3.6vw, 46px);
+  max-width: 13ch;
+  margin-bottom: 0;
+}
+/* The three statements.
+
+   They were built on the site's diff-beat, whose hover slides the row
+   right to reveal a crimson bar. That is a homepage behaviour for a set
+   of hoverable items; here nothing is clickable, and every attempt to
+   suppress it left the text and the bar fighting for the same pixels.
+   So they are no longer diff-beats. Nothing to suppress.
+
+   The treatment is the site's pull-quote device instead - a crimson rule
+   down the left edge, text set in from it. It already appears on the
+   about and practice pages, it needs no dividers, and three of them
+   stacked give the column a vertical rhythm that answers the hard edge
+   of the photograph opposite. */
+.page-h2a .pain-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 1.8vw, 20px);
+}
+.page-h2a .pain-item {
+  padding: 3px 0 3px 22px;
+  border-left: 2px solid var(--color-crimson);
+  font-size: clamp(16px, 1.3vw, 17.5px);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-ink);
+  text-wrap: pretty;
+}
+/* The payroll worry is the one that moves people to call, so it takes
+   the navy field the site uses for a dominant beat - same left rule, so
+   it reads as the third item rather than a different object. */
+.page-h2a .pain-item--key {
+  background: var(--color-navy-deep);
+  color: var(--color-paper);
+  font-weight: 600;
+  padding: 20px 24px 21px 22px;
+  margin-top: clamp(6px, 1vw, 10px);
+}
+
+.page-h2a .pain-cta { margin-top: clamp(26px, 3vw, 34px); }
+
+/* ============================================================
+   WHAT WE DO
+   The site's process pattern, unchanged: dark section, intro left,
+   numbered steps right with ghost numerals and hairline dividers. The
+   "you provide housing" line moved into the intro as the lead, where it
+   belongs with the argument rather than trailing the list as a separate
+   invented object.
+   ============================================================ */
+.page-h2a .sec-process .copy-card-h { max-width: 30ch; }
+.page-h2a .how-cta { margin-top: clamp(26px, 3vw, 34px); }
+
+/* ============================================================
+   CREW BAND
+   A full-bleed strip between the DIY argument and the qualification
+   gate, covering the longest run of type on the page.
+
+   Height is set rather than derived from an aspect ratio. A ratio makes
+   a full-bleed band grow with the viewport, so on a wide monitor it
+   turns into a second hero and competes with the top of the page. A cap
+   keeps it a breath between two sections.
+   ============================================================ */
+.crew-band {
+  position: relative;
+  overflow: hidden;
+}
+/* The band, ungraded.
+
+   No filter and no overlay - the treatments all hurt more than they
+   helped.
+
+   What matters here is the photograph's own composition. A 400px band
+   is a 3.6:1 letterbox, and no crop of a standing full-length figure
+   survives that - pick any slice and it takes the head or the legs.
+   Asking the CDN for the band's ratio fixed the magnification but not
+   the beheading, because the problem was the subject, not the scaling.
+
+   The file is requested uncropped so the crop decision stays here
+   rather than with the CDN, which centres blindly and last time landed
+   the band squarely on a cardboard box.
+
+   The subject is a crew working along a harvest rig - a horizontal
+   event, so a shallow strip is a view of the whole scene rather than a
+   fragment of one person. The machinery also breaks up the green, which
+   is what let the earlier field shots clash with the navy; equipment
+   and turned earth give the frame a value range, so no grading is
+   needed. `object-position` sits just above centre to hold the working
+   line rather than the sky.
+   ============================================================ */
+.page-h2a .crew-band__media {
+  position: relative;
+  width: 100%;
+  height: clamp(240px, 28vw, 400px);
+  background: var(--navy-800);
+}
+.page-h2a .crew-band__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 44%;
+}
+.page-h2a .crew-band__media.photo-plane--photo::before,
+.page-h2a .crew-band__media.photo-plane--photo::after,
+.page-h2a .crew-band__media .photo-plane__label { display: none; }
+
+/* ============================================================
+   DOING IT YOURSELF
+   The page's one moment of plain assertion, and it sits between two
+   two-column sections, so it is centred and open where they are dense.
+   Three grey paragraphs stacked in a void gave the reader nothing to
+   hold on to; the same words under short labels become a comparison you
+   can read in five seconds - alone, with us, and when it goes wrong.
+
+   The three-up borrows grammar the page has already established -
+   hairline top, eyebrow label, copy-body - rather than introducing a
+   card or a border treatment the site does not otherwise use.
+   ============================================================ */
+.page-h2a .sec-firm { background: var(--color-paper); }
+.page-h2a .sec-firm .sec-head .copy-h2 {
+  max-width: 20ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-h2a .sec-firm .sec-head .sec-rule {
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-h2a .claim-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3.5vw, 48px);
+}
+.page-h2a .claim {
+  padding-top: 20px;
+  border-top: 1px solid var(--color-line);
+}
+.page-h2a .claim .eyebrow { margin-bottom: 12px; }
+.page-h2a .claim .copy-body { font-size: 16px; }
+/* The differentiator carries the crimson rule and darker text - the same
+   weighting the rest of the site gives the beat that matters most. */
+.page-h2a .claim--key { border-top-color: var(--color-crimson); }
+.page-h2a .claim--key .eyebrow { color: var(--color-crimson); }
+.page-h2a .claim--key .copy-body { color: var(--color-ink); }
+
+/* ============================================================
+   WHO WE CAN HELP
+   A qualification gate, so it stays short and decisive. Previously the
+   four rows stretched the full container - a dozen words adrift in a
+   thousand pixels. Pairing them with an image fixes the measure and
+   earns its keep: the hero shows row crops, this shows rangeland, and
+   between them they say "any operation" better than the line of copy
+   that claims it.
+
+   Same media-beside-copy construction the homepage uses for its
+   argument section, and the photograph sits in a photo-plane so it
+   inherits the site's grade language rather than replacing it.
+   ============================================================ */
+.page-h2a .sec-fit { background: var(--color-mist); }
+.page-h2a .fit-layout {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: clamp(36px, 5vw, 72px);
+  align-items: center;
+}
+.page-h2a .fit-copy .copy-h2 { max-width: 14ch; margin-bottom: clamp(24px, 3vw, 32px); }
+.page-h2a .fit-list { list-style: none; }
+.page-h2a .fit-item {
+  position: relative;
+  padding: 15px 0 15px 38px;
+  border-bottom: 1px solid var(--neutral-100);
+  font-size: clamp(16px, 1.6vw, 18px);
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+.page-h2a .fit-item:first-child { border-top: 1px solid var(--neutral-100); }
+.page-h2a .fit-item::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 22px;
+  width: 15px;
+  height: 8px;
+  border-left: 2px solid var(--color-crimson);
+  border-bottom: 2px solid var(--color-crimson);
+  transform: rotate(-45deg);
+}
+.page-h2a .fit-note {
+  margin: clamp(22px, 2.6vw, 28px) 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.1vw, 25px);
+  letter-spacing: -0.02em;
+  color: var(--color-navy-deep);
+}
+.page-h2a .fit-cta { margin-top: clamp(18px, 2.2vw, 24px); }
+.page-h2a .fit-media {
+  /* Source is a wide landscape, so a tall crop keeps the full sky and
+     trades away the frame's width. 3:4 holds the cattle line and the
+     ridge behind it. */
+  aspect-ratio: 3 / 4;
+  width: 100%;
+}
+.page-h2a .fit-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 48%;
+  filter: saturate(0.86) contrast(1.04);
+}
+/* The sky in this file is blown almost white and pulls the eye off the
+   herd. A soft navy fall from the top settles it. */
+.page-h2a .fit-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 26, 77, 0.2) 0%,
+    rgba(0, 26, 77, 0.04) 26%,
+    rgba(0, 26, 77, 0) 46%
+  );
+}
+.page-h2a .fit-media.photo-plane--photo::before,
+.page-h2a .fit-media .photo-plane__label { display: none; }
+
+
+
+/* ============================================================
+   THE ATTORNEY
+   The site's attorney-layout: portrait left, copy right. The portrait
+   does not exist yet, so the plate holds the firm's monogram on the
+   navy portrait grade instead of a grey box stamped PLACEHOLDER. It
+   reads as a brand plate a designer chose, which is the difference
+   between a page that is waiting and a page that looks unfinished.
+   Drop an <img> in place of the mark when the photograph arrives.
+
+   The credentials are set as a ledger - label left, value right,
+   hairline between. Law firms have published admissions this way for a
+   century, so it is the subject's own vernacular, and it turns five
+   soft bullets into six rows of verifiable fact. It also retires the
+   dash markers, which were a fifth competing list style on this page.
+   ============================================================ */
+.page-h2a .sec-gina { background: var(--color-paper); }
+
+.page-h2a .gina-frame { overflow: hidden; }
+.page-h2a .gina-frame .photo-plane__label { display: none; }
+.page-h2a .gina-frame__mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(96px, 26%, 150px);
+  height: auto;
+  transform: translate(-50%, -50%);
+  opacity: 0.22;
+  z-index: 2;
+}
+/* The site draws an offset outline behind attorney-frame-wrap. Keeping
+   the name outside that wrapper stops the outline running past the
+   picture and boxing the caption. */
+.page-h2a .gina-media .gina-name {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.2vw, 27px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  margin: 22px 0 4px;
+}
+.page-h2a .gina-media .gina-role {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+  margin: 0;
+}
+.page-h2a .attorney-copy .copy-h2 {
+  font-size: clamp(26px, 3vw, 40px);
+  max-width: 22ch;
+  margin-bottom: clamp(24px, 3vw, 32px);
+}
+.page-h2a .attorney-copy .soft-link {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 11px 0;
+}
+
+.page-h2a .ledger { border-top: 1px solid var(--color-line); }
+.page-h2a .ledger__row {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 20px;
+  align-items: baseline;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+.page-h2a .ledger__k {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+}
+.page-h2a .ledger__v {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--color-ink);
+}
+
+/* ============================================================
+   WHAT HAPPENS WHEN YOU CALL
+   This is the only section on the page describing something that
+   unfolds in time, so it is drawn as a track: one rule running the
+   width of the section, interrupted by the three numerals that sit on
+   it. The line is the sequence - nothing decorative is added to say so.
+
+   It also has to look unlike the three-up in "Doing it yourself" a
+   couple of sections above. Same materials, different structure.
+   ============================================================ */
+.page-h2a .sec-steps { background: var(--color-mist); }
+.page-h2a .sec-steps .copy-h2 { max-width: 22ch; }
+
+.page-h2a .track {
+  position: relative;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3.5vw, 48px);
+}
+/* The rule sits behind the numerals; each numeral knocks a gap in it
+   with a background matching the band. */
+.page-h2a .track::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 16px;
+  height: 1px;
+  background: var(--color-line);
+}
+.page-h2a .track__step { position: relative; }
+.page-h2a .track__num {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-crimson);
+  background: var(--color-mist);
+  padding-right: 14px;
+  margin-bottom: 16px;
+}
+.page-h2a .track__t {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-ink);
+  max-width: 34ch;
+}
+
+/* ============================================================
+   FAQ
+   The site's accordion, unchanged, with one correction: a closed item
+   still measured 44px of empty panel because the answer's bottom margin
+   sits outside the collapsing grid row. Six closed questions carried
+   about 260px of nothing, which on a phone is most of a screen. The
+   spacing now belongs to the open state and animates with it.
+   Worth promoting into site.css - every page has the same gap.
+   ============================================================ */
+.page-h2a .sec-faq { background: var(--color-paper); }
+.page-h2a .faq-item__a {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  transition: opacity 0.35s ease, transform 0.4s ease,
+    margin-bottom 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    padding-bottom 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.page-h2a .faq-item.is-open .faq-item__a {
+  margin-bottom: 26px;
+  padding-bottom: 4px;
+}
+
+/* ============================================================
+   FINAL CALL
+   Identical construction to the homepage close: the grade gradient in
+   final-atmosphere, the site's final-scrim over it, the ring, and the
+   centred stack. No photograph.
+
+   The only page-level change is the copy arrangement. Previously the
+   headline was the phone number and the button sixty pixels below it
+   repeated the same number. The closing sentence now carries the
+   headline and the lead, and the number appears once, on the thing you
+   press.
+   ============================================================ */
+.page-h2a .final-inner .sec-rule {
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-h2a .final-inner .copy-h1 {
+  font-size: clamp(32px, 4.6vw, 60px);
+  max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-h2a .final-inner .copy-lead {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 42ch;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 900px) {
+  .page-h2a .fit-layout,
+  .page-h2a .attorney-layout,
+  .page-h2a .claim-grid,
+  .page-h2a .track {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .page-h2a .claim-grid { gap: 0; }
+  .page-h2a .claim { padding: 20px 0; }
+
+  /* The track turns on its side: the rule runs down the left, the
+     numerals sit on it, the copy is indented past both. */
+  .page-h2a .track { gap: 0; }
+  .page-h2a .track::before {
+    left: 13px;
+    right: auto;
+    top: 6px;
+    bottom: 22px;
+    width: 1px;
+    height: auto;
+  }
+  .page-h2a .track__step { padding: 0 0 26px 44px; }
+  .page-h2a .track__step:last-child { padding-bottom: 0; }
+  .page-h2a .track__num {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0 0 6px;
+    font-size: 22px;
+  }
+  .page-h2a .track__t { max-width: none; }
+
+  /* Picture sits under the heading and above the checklist, so the
+     section opens with something to look at and still ends on the
+     call button. */
+
+  
+  /* Portrait plate goes wide rather than tall on a phone, so it does not
+     push the credentials a screen and a half down. */
+  .page-h2a .gina-frame { aspect-ratio: 3 / 2; }
+
+  /* Label above value: a 132px label column leaves no room for the
+     value on a phone. */
+  .page-h2a .ledger__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+    padding: 14px 0;
+  }
+
+  .page-h2a .sec-cta .cta-btn { width: 100%; text-align: center; }
+
+  /* The site hero is built for three- and four-word headlines. Tighten
+     the block here so the call button still clears the fold. */
+  .page-h2a .sec-hero { min-height: 0; }
+  .page-h2a .hero-content {
+    padding-top: calc(var(--header-h) + 40px);
+    padding-bottom: clamp(40px, 7vh, 64px);
+  }
+  .page-h2a .hero-brand { font-size: 22px; margin-bottom: 14px; }
+  .page-h2a .hero-brand::after { margin-top: 12px; }
+  .page-h2a .hero-copy .copy-lead { font-size: 16px; max-width: none; }
+  .page-h2a .hero-copy .cta-btn { width: 100%; text-align: center; }
+  /* Parallax is a battery and jank tax on phones, and this audience is
+     on one. */
+  .page-h2a .hero-media { transform: none !important; }
+
+  /* Heading, picture, situations - in that order, one column. */
+  .page-h2a .pain-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+  }
+  .page-h2a .pain-head,
+  .page-h2a .pain-beats,
+  .page-h2a .pain-media { grid-column: 1; grid-row: auto; }
+  .page-h2a .pain-media {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+  .page-h2a .pain-cta { width: 100%; text-align: center; }
+  /* Shorter still on a phone - it is a pause, not a panel. */
+  .page-h2a .crew-band__media { height: clamp(190px, 44vw, 250px); }
+  .page-h2a .fit-layout { gap: 26px; }
+  /* The crew band sits directly above this section on a phone, so the
+     cattle shot goes below the checklist rather than stacking with it. */
+  .page-h2a .fit-media { aspect-ratio: 3 / 2; }
+}
+
+@media (max-width: 560px) {
+  .page-h2a .fit-item { font-size: 17px; padding-left: 38px; }
+  .page-h2a .fit-note { font-size: 18px; }
+  /* site.css stacks the trust marks into a column below 560px; on a
+     landing page that wastes three lines above the call button. */
+  .page-h2a .hero-trust {
+    flex-direction: row;
+    gap: 6px 0;
+    font-size: 12px;
+  }
+  .page-h2a .hero-trust span { padding: 0; border-left: none; }
+  .page-h2a .hero-trust span::before { display: none; }
+  .page-h2a .hero-trust span:not(:last-child)::after {
+    content: "\00b7";
+    display: inline-block;
+    padding: 0 9px;
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-h2a .hero-media { transform: none !important; }
+
+  /* Heading, picture, situations - in that order, one column. */
+  .page-h2a .pain-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+  }
+  .page-h2a .pain-head,
+  .page-h2a .pain-beats,
+  .page-h2a .pain-media { grid-column: 1; grid-row: auto; }
+  .page-h2a .pain-media {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+  .page-h2a .pain-cta { width: 100%; text-align: center; }
+  /* Shorter still on a phone - it is a pause, not a panel. */
+  .page-h2a .crew-band__media { height: clamp(190px, 44vw, 250px); }
+  .page-h2a .fit-layout { gap: 26px; }
+  /* The crew band sits directly above this section on a phone, so the
+     cattle shot goes below the checklist rather than stacking with it. */
+  .page-h2a .fit-media { aspect-ratio: 3 / 2; }
+}

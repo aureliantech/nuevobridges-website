@@ -1,0 +1,122 @@
+/* FAQ — page-unique objects (mid hero + cluster rhythm + truck-checklist stagger)
+   Shared chrome/type/CTA/faq accordion/final live in site.css */
+
+/* —— Centered hero (vertically mid-viewport; no lead) —— */
+.page-faq .sec-hero {
+  align-items: center;
+}
+.page-faq .sec-hero .hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: clamp(72px, 10vh, 100px);
+  padding-bottom: clamp(72px, 10vh, 100px);
+}
+.page-faq .hero-copy {
+  max-width: min(36rem, 94vw);
+  margin: 0 auto;
+}
+.page-faq .hero-copy .copy-h1 {
+  max-width: none;
+  margin-bottom: 0;
+}
+.page-faq .hero-copy .hero-brand {
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-faq .hero-copy .hero-brand::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-faq .hero-copy .eyebrow {
+  margin-bottom: 14px;
+}
+.page-faq .hero-copy .eyebrow.on-dark {
+  color: var(--navy-200);
+}
+.page-faq .hero-copy .cta-btn {
+  margin-top: 28px;
+}
+
+/* —— Cluster surfaces —— */
+.page-faq .faq-cluster {
+  padding-top: clamp(56px, 8vw, 88px);
+  padding-bottom: clamp(56px, 8vw, 88px);
+}
+.page-faq .faq-cluster--paper {
+  background: var(--color-paper);
+}
+.page-faq .faq-cluster--mist {
+  background: var(--color-mist);
+}
+.page-faq .faq-cluster .sec-head {
+  margin-bottom: clamp(28px, 4vw, 40px);
+}
+.page-faq .faq-cluster .copy-h2 {
+  max-width: 18ch;
+}
+.page-faq .faq-cluster__cta {
+  text-align: center;
+  padding-top: 36px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(0, 26, 77, 0.12);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.page-faq .faq-cluster__cta .cta-btn {
+  margin-top: 0;
+}
+
+/* —— Truck checklist stagger on every accordion item ——
+   Shared .reveal / .is-in only; stronger rise + nth-child delays */
+.page-faq .faq-item.reveal {
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.35s ease;
+}
+.page-faq .faq-item.reveal:not(.is-in) {
+  transform: translateY(44px);
+}
+.page-faq .faq-cluster .sec-head.reveal {
+  transition-delay: 0ms;
+}
+.page-faq .faq-list .faq-item.reveal:nth-child(1) { transition-delay: 80ms; }
+.page-faq .faq-list .faq-item.reveal:nth-child(2) { transition-delay: 170ms; }
+.page-faq .faq-list .faq-item.reveal:nth-child(3) { transition-delay: 260ms; }
+.page-faq .faq-list .faq-item.reveal:nth-child(4) { transition-delay: 350ms; }
+
+.page-faq .faq-cluster__cta.reveal:not(.is-in) {
+  transform: translateY(32px);
+}
+.page-faq .faq-cluster__cta.reveal {
+  transition-delay: 350ms;
+}
+/* Soft CTA after 3-item clusters lands after last item */
+.page-faq .faq-list:has(.faq-item:nth-child(3)) ~ .faq-cluster__cta.reveal {
+  transition-delay: 440ms;
+}
+/* Soft CTA after 2-item (truck) cluster */
+.page-faq .faq-list:has(.faq-item:nth-child(2):last-child) ~ .faq-cluster__cta.reveal {
+  transition-delay: 350ms;
+}
+
+@media (max-width: 560px) {
+  .page-faq .hero-copy .copy-h1 {
+    font-size: clamp(28px, 7.2vw, 40px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-faq .faq-item.reveal:not(.is-in),
+  .page-faq .faq-cluster__cta.reveal:not(.is-in) {
+    transform: none;
+  }
+  .page-faq .faq-list .faq-item.reveal,
+  .page-faq .faq-cluster__cta.reveal,
+  .page-faq .faq-cluster .sec-head.reveal {
+    transition-delay: 0ms;
+  }
+}

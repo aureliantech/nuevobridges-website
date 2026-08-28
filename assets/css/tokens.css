@@ -1,0 +1,50 @@
+/* NuevoBridges Law — Brand Tokens (approved Josh 2026-08-22)
+   Source: Context/Identity/NuevoBridges_Law_Brand_Tokens.md
+   Colors + fonts only. */
+
+:root {
+  /* Primary — Federal Navy */
+  --navy-50: #F0F4FA;
+  --navy-100: #D9E3F2;
+  --navy-200: #A8C0E0;
+  --navy-300: #6B92C9;
+  --navy-400: #2E5FB8;
+  --navy-500: #0038A8;
+  --navy-600: #002F8F;
+  --navy-700: #002570;
+  --navy-800: #001A4D;
+  --navy-900: #000F2E;
+
+  /* Neutrals — Ink & Paper */
+  --paper: #FFFFFF;
+  --mist: #F7F7F7;
+  --neutral-100: #EEEEEE;
+  --neutral-500: #737373;
+  --ink: #1B1B1B;
+
+  /* Accent — Bridges Crimson */
+  --crimson-100: #F4D9D4;
+  --crimson-300: #D06B58;
+  --crimson-500: #981800;
+  --crimson-600: #8B0000;
+  --crimson-700: #6E1200;
+  --crimson-900: #2A0700;
+
+  /* Semantic aliases */
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-mist: var(--mist);
+  --color-line: var(--neutral-100);
+  --color-muted: var(--neutral-500);
+  --color-navy: var(--navy-500);
+  --color-navy-deep: var(--navy-800);
+  --color-navy-footer: var(--navy-900);
+  --color-crimson: var(--crimson-500);
+  --color-on-dark-muted: var(--navy-200);
+
+  --font-display: "Lora", "Times New Roman", serif;
+  --font-body: "Switzer", "Helvetica Neue", sans-serif;
+
+  --header-h: 64px;
+  --mobile-cta-h: 56px;
+}

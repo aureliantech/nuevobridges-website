@@ -1,0 +1,150 @@
+/* Submit a testimonial — page-specific objects.
+
+   A short page with one job. The hero is cut down because nothing here
+   needs persuading: someone arriving has already decided to write
+   something, and the fastest thing the page can do is show them the
+   first field. */
+
+/* ============================================================
+   HERO
+   Half height, no call button. A phone number here would compete with
+   the only action on the page.
+   ============================================================ */
+.page-testimonial .sec-hero--short { min-height: 62vh; }
+.page-testimonial .hero-copy { max-width: 36rem; }
+.page-testimonial .hero-copy .copy-h1 {
+  font-size: clamp(34px, 4.6vw, 60px);
+  line-height: 1.05;
+  text-indent: -0.02em;
+}
+.page-testimonial .hero-copy .copy-lead { max-width: 44ch; }
+
+/* ============================================================
+   THE FORM
+   Fields are hairline-ruled rather than boxed. Boxed inputs are the
+   default look of every form on the internet and would be the only
+   element on this site drawn that way; an underline is the same device
+   the ledgers and rosters already use, so the form belongs to the page
+   rather than sitting on top of it.
+
+   The label sits above the field and stays there - placeholder-as-label
+   loses the question the moment someone starts typing, which on a form
+   with a two-sentence answer is exactly the wrong moment.
+   ============================================================ */
+.page-testimonial .sec-form { background: var(--color-paper); }
+.page-testimonial .sec-form .sec-head { margin-bottom: clamp(28px, 3.4vw, 42px); }
+
+.page-testimonial .tform {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(22px, 2.6vw, 30px);
+}
+.page-testimonial .tfield {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.page-testimonial .tfield__label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+}
+.page-testimonial .tfield__hint {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  opacity: 0.8;
+}
+.page-testimonial .tfield__req { color: var(--color-crimson); }
+
+.page-testimonial .tfield__input {
+  width: 100%;
+  padding: 12px 2px;
+  border: none;
+  border-bottom: 1px solid var(--color-line);
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--color-ink);
+  transition: border-color 0.22s ease;
+}
+.page-testimonial .tfield__input--area {
+  resize: vertical;
+  min-height: 128px;
+  line-height: 1.6;
+}
+.page-testimonial .tfield__input::placeholder { color: var(--neutral-300); }
+/* Crimson on focus, because the accent colour is what this site uses to
+   say "this is the live thing right now". */
+.page-testimonial .tfield__input:focus {
+  outline: none;
+  border-bottom-color: var(--color-crimson);
+  border-bottom-width: 2px;
+  padding-bottom: 11px;
+}
+
+.page-testimonial .tconsent {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  padding-top: 4px;
+}
+.page-testimonial .tconsent__box {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  accent-color: var(--color-crimson);
+}
+.page-testimonial .tconsent__label {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+
+.page-testimonial .tform__submit {
+  align-self: flex-start;
+  margin-top: clamp(8px, 1.4vw, 14px);
+  padding: 20px 40px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+/* Small, and after the button rather than before it. A disclaimer above
+   the submit reads as a warning; below it reads as a footnote. */
+.page-testimonial .tform__note {
+  margin: clamp(10px, 1.6vw, 16px) 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-muted);
+  max-width: 62ch;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 900px) {
+  .page-testimonial .sec-hero--short { min-height: 0; }
+  .page-testimonial .hero-content {
+    padding-top: calc(var(--header-h) + 40px);
+    padding-bottom: clamp(40px, 7vh, 64px);
+  }
+  .page-testimonial .hero-brand { font-size: 22px; margin-bottom: 14px; }
+  .page-testimonial .hero-brand::after { margin-top: 12px; }
+  .page-testimonial .hero-copy .copy-lead { font-size: 16px; max-width: none; }
+  .page-testimonial .hero-media { transform: none !important; }
+
+  /* Full-width target, and 16px minimum on inputs so iOS does not zoom
+     the viewport when a field is focused. */
+  .page-testimonial .tform__submit { width: 100%; text-align: center; }
+  .page-testimonial .tfield__input { font-size: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-testimonial .hero-media { transform: none !important; }
+}

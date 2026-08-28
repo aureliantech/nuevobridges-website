@@ -1,0 +1,198 @@
+/* Legal interns — page-specific objects.
+
+   This is a recruitment page, run with American University Washington
+   College of Law. The reader is a law student or a placement office, not
+   a client - so nothing here uses the client phone number or the free
+   consultation language.
+
+   The roster is the argument. A prospective intern does not want to be
+   told the work is substantive; they want to read what eight people
+   before them actually did. So the page states the offer briefly and
+   then spends its length on evidence. */
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.page-interns .hero-copy { max-width: 40rem; }
+.page-interns .hero-copy .copy-h1 {
+  font-size: clamp(32px, 4.4vw, 58px);
+  line-height: 1.06;
+  text-indent: -0.02em;
+}
+.page-interns .hero-copy .copy-lead { max-width: 50ch; }
+.page-interns .hero-note {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: rgba(217, 227, 242, 0.82);
+}
+
+/* ============================================================
+   ABOUT THE PROGRAM
+   The page is about the internship program, and the roster is evidence
+   for it - not the other way round. So the programme gets stated plainly
+   before the first name appears, on light ground directly under a dark
+   hero so the section arrives with an edge.
+   ============================================================ */
+.page-interns .program {
+  background: var(--color-paper);
+  border-bottom: 1px solid rgba(0, 26, 77, 0.08);
+  padding: clamp(52px, 6.5vw, 84px) 0;
+}
+.page-interns .program__inner { text-align: center; }
+.page-interns .program__inner .sec-rule {
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-interns .program__inner .copy-h2 {
+  font-size: clamp(26px, 3.2vw, 42px);
+  max-width: 20ch;
+  margin: 0 auto 14px;
+}
+.page-interns .program__inner .copy-lead {
+  max-width: 58ch;
+  margin: 0 auto;
+}
+.page-interns .program__cta {
+  margin-top: clamp(26px, 3.2vw, 34px);
+  padding: 20px 40px;
+  font-size: 16px;
+}
+
+/* ============================================================
+   GROUPS
+   Three sections, alternating mist, navy, paper. The alternation is
+   doing real work here: without it, three near-identical rosters in a
+   row read as one long list, and the group structure - which is the
+   only hierarchy this page has - disappears.
+
+   Description left, people right. The heading column stays put while
+   the roster runs, so a reader always knows which group they are in.
+   ============================================================ */
+.page-interns .tone-mist { background: var(--color-mist); }
+.page-interns .tone-paper { background: var(--color-paper); }
+.page-interns .tone-dark {
+  background: var(--navy-900);
+  color: var(--color-paper);
+}
+
+.page-interns .group-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(36px, 5vw, 80px);
+  align-items: start;
+}
+.page-interns .group-head { position: sticky; top: calc(var(--header-h) + 40px); }
+.page-interns .group-head .copy-h2 {
+  max-width: 16ch;
+  margin-bottom: 16px;
+}
+.page-interns .group-head .copy-body {
+  font-size: 16px;
+  max-width: 42ch;
+}
+
+/* ============================================================
+   ROSTER
+   Each person sits on a crimson rule - the same device the H-2A
+   statements and the detention facilities use - with the name in Lora,
+   the school as a small tracked label, and the work in body text.
+
+   Name, school, then work: someone scanning reads eight names; someone
+   interested reads what each of them actually does.
+   ============================================================ */
+.page-interns .roster {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(26px, 3vw, 38px);
+}
+.page-interns .roster__item {
+  padding: 2px 0 4px 24px;
+  border-left: 2px solid var(--color-crimson);
+}
+.page-interns .roster__name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(21px, 2.2vw, 27px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+.page-interns .roster__school {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--color-muted);
+}
+.page-interns .roster__bio {
+  margin: 12px 0 0;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--color-ink);
+  max-width: 62ch;
+}
+/* On the navy group the same three levels, re-toned. */
+.page-interns .tone-dark .roster__name { color: var(--color-paper); }
+.page-interns .tone-dark .roster__school { color: var(--navy-200); }
+.page-interns .tone-dark .roster__bio { color: var(--navy-100); }
+
+/* ============================================================
+   FINAL CALL
+   ============================================================ */
+.page-interns .final-inner .sec-rule {
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-interns .final-inner .copy-h1 {
+  font-size: clamp(32px, 4.6vw, 60px);
+  max-width: 20ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 900px) {
+  .page-interns .group-layout { grid-template-columns: minmax(0, 1fr); }
+  /* Sticky headings are a desktop affordance; on a phone the heading
+     would sit over the roster it belongs to. */
+  .page-interns .group-head { position: static; }
+  .page-interns .roster__name { font-size: 21px; }
+  .page-interns .roster__bio { max-width: none; }
+
+  .page-interns .sec-hero { min-height: 0; }
+  .page-interns .hero-content {
+    padding-top: calc(var(--header-h) + 40px);
+    padding-bottom: clamp(40px, 7vh, 64px);
+  }
+  .page-interns .hero-brand { font-size: 22px; margin-bottom: 14px; }
+  .page-interns .hero-brand::after { margin-top: 12px; }
+  .page-interns .hero-copy .copy-lead { font-size: 16px; max-width: none; }
+  .page-interns .hero-copy .cta-btn,
+  .page-interns .program__cta { width: 100%; text-align: center; }
+  .page-interns .hero-media { transform: none !important; }
+}
+
+@media (max-width: 560px) {
+  .page-interns .hero-trust {
+    flex-direction: row;
+    gap: 6px 0;
+    font-size: 12px;
+  }
+  .page-interns .hero-trust span { padding: 0; border-left: none; }
+  .page-interns .hero-trust span::before { display: none; }
+  .page-interns .hero-trust span:not(:last-child)::after {
+    content: "\00b7";
+    display: inline-block;
+    padding: 0 9px;
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-interns .hero-media { transform: none !important; }
+}

@@ -1,0 +1,164 @@
+/* Contact — page-unique objects (phone channel + service area)
+   Shared chrome/type/CTA/hero/final live in site.css */
+
+/* Hero eyebrow under brand */
+.page-contact .hero-copy .eyebrow {
+  margin-bottom: 14px;
+}
+.page-contact .hero-copy .eyebrow.on-dark {
+  color: var(--navy-200);
+}
+.page-contact .hero-micro {
+  margin-top: 18px;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+  max-width: 36ch;
+  color: var(--navy-100);
+  opacity: 0.92;
+}
+
+/* —— Phone channel: content panel (not a mega-button) —— */
+.page-contact .sec-channel {
+  background:
+    linear-gradient(165deg, var(--navy-50) 0%, var(--color-mist) 55%, var(--color-paper) 100%);
+  padding-top: clamp(56px, 8vw, 88px);
+  padding-bottom: clamp(56px, 8vw, 88px);
+}
+.page-contact .channel-panel {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  padding: clamp(36px, 5vw, 56px) clamp(28px, 4vw, 48px);
+  background: var(--color-paper);
+  border: 1px solid rgba(0, 26, 77, 0.1);
+  border-radius: 2px;
+  box-shadow: 0 18px 48px rgba(0, 15, 46, 0.06);
+  position: relative;
+}
+.page-contact .channel-panel::before {
+  content: "";
+  position: absolute;
+  left: clamp(28px, 4vw, 48px);
+  right: clamp(28px, 4vw, 48px);
+  top: 0;
+  height: 2px;
+  background: var(--color-crimson);
+  opacity: 0.85;
+}
+.page-contact .channel-panel .copy-h2 {
+  max-width: 22ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-contact .channel-body {
+  margin: 16px auto 0;
+  max-width: 42ch;
+  color: var(--neutral-500);
+}
+.page-contact .channel-number {
+  display: block;
+  margin: 28px auto 0;
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-navy-deep);
+  text-decoration: none;
+  transition: color 0.25s ease, letter-spacing 0.25s ease;
+}
+.page-contact .channel-number:hover {
+  color: var(--color-crimson);
+  letter-spacing: -0.01em;
+}
+.page-contact .channel-panel .cta-btn {
+  margin-top: 20px;
+}
+.page-contact .channel-panel .micro {
+  margin-top: 16px;
+  color: var(--neutral-500);
+}
+
+/* —— Service area: asymmetric argument + framed corridor plane —— */
+.page-contact .sec-area {
+  background: var(--color-paper);
+}
+.page-contact .area-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+.page-contact .area-argument .copy-h2 {
+  max-width: 16ch;
+}
+.page-contact .area-argument .copy-lead {
+  margin-top: 12px;
+  margin-bottom: 20px;
+  max-width: 42ch;
+}
+.page-contact .area-argument .copy-body {
+  max-width: 44ch;
+  margin-bottom: 12px;
+}
+.page-contact .area-hours {
+  margin-top: 8px;
+  font-weight: 700;
+  color: var(--color-navy-deep);
+  letter-spacing: 0.02em;
+}
+.page-contact .area-media-wrap {
+  position: sticky;
+  top: calc(var(--header-h) + 28px);
+}
+.page-contact .area-media {
+  min-height: min(58vh, 520px);
+  border-radius: 2px;
+  outline: 1px solid rgba(0, 26, 77, 0.1);
+  outline-offset: 10px;
+  transition: outline-color 0.35s ease, outline-offset 0.35s ease, filter 0.4s ease;
+}
+.page-contact .area-media-wrap:hover .area-media {
+  outline-color: rgba(152, 24, 0, 0.35);
+  outline-offset: 14px;
+  filter: brightness(1.08);
+}
+.page-contact .area-media-wrap:hover .photo-plane::before {
+  filter: saturate(1.15);
+}
+
+@media (max-width: 960px) {
+  .page-contact .area-layout {
+    grid-template-columns: 1fr;
+  }
+  .page-contact .area-media-wrap {
+    position: static;
+  }
+  .page-contact .area-media {
+    min-height: 280px;
+    outline-offset: 6px;
+  }
+  .page-contact .channel-panel {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-contact .hero-copy .copy-h1 {
+    font-size: clamp(28px, 7.2vw, 40px);
+  }
+  .page-contact .channel-number {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-contact .channel-number:hover {
+    letter-spacing: -0.02em;
+  }
+  .page-contact .area-media-wrap:hover .area-media {
+    filter: none;
+    outline-offset: 10px;
+  }
+}

@@ -1,0 +1,400 @@
+/* ICE detention / federal habeas — page-specific objects.
+   Shared chrome, type scale, buttons and section rhythm live in site.css.
+   The list patterns here (ledger, track) are the same ones the H-2A page
+   uses, so the two practice pages read as one site. */
+
+/* ============================================================
+   HERO
+   Same construction as every other hero. The headline is a sentence
+   rather than three words, so it sits a step below the site's h1 scale
+   to keep the call button above the fold on a phone.
+   ============================================================ */
+/* A courthouse facade: columns and a clock, no flag. The flag was the
+   problem twice over - the first file had it at half staff, which means
+   mourning, and on a page read by someone whose relative is in custody
+   that is the worst thing to say by accident. No flag removes the risk
+   rather than managing it.
+
+   Held right so the type on the left lands on the quieter part of the
+   frame, and graded down hard: it is a bright daylight exterior and the
+   headline is white Lora. */
+.page-habeas .sec-hero .photo-plane--photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 68% 46%;
+  filter: saturate(0.7) contrast(1.08) brightness(0.58);
+}
+.page-habeas .sec-hero .photo-plane--photo::before,
+.page-habeas .sec-hero .photo-plane--photo::after,
+.page-habeas .sec-hero .photo-plane--photo .photo-plane__label { display: none; }
+
+.page-habeas .hero-copy { max-width: 40rem; }
+.page-habeas .hero-copy .copy-h1 {
+  font-size: clamp(32px, 4.4vw, 58px);
+  line-height: 1.06;
+  text-indent: -0.02em;
+}
+.page-habeas .hero-copy .copy-lead { max-width: 46ch; }
+.page-habeas .hero-note {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: rgba(217, 227, 242, 0.82);
+}
+
+/* ============================================================
+   CALL NOW
+   A place to stop, not a passage. If someone never scrolls past this
+   and simply calls, the page has done its whole job.
+
+   It was navy first, which was the mistake: a dark section directly
+   under a dark hero has no edge between them, so the hero never appears
+   to end and the whole top of the page becomes one shapeless dark
+   block. Light ground fixes that in a way no amount of size could -
+   contrast is what makes a section arrive, not height.
+
+   The button is the site's standard one, scaled up. The `final` variant
+   was wrong here: it carries a pale halo built for dark ground, which
+   on white reads as a smudge behind the button.
+   ============================================================ */
+.page-habeas .callnow {
+  background: var(--color-paper);
+  border-bottom: 1px solid rgba(0, 26, 77, 0.08);
+  padding: clamp(52px, 6.5vw, 88px) 0;
+}
+.page-habeas .callnow__inner { text-align: center; }
+.page-habeas .callnow__inner .copy-h2 {
+  font-size: clamp(27px, 3.4vw, 44px);
+  max-width: 17ch;
+  margin: 0 auto 14px;
+}
+.page-habeas .callnow__inner .copy-lead {
+  max-width: 48ch;
+  margin: 0 auto;
+}
+.page-habeas .callnow__cta {
+  margin-top: clamp(26px, 3.2vw, 36px);
+  padding: 22px 44px;
+  font-size: 17px;
+  letter-spacing: 0.03em;
+}
+.page-habeas .callnow__micro {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   FACILITIES
+   The most useful section on the page. Someone whose brother was taken
+   last night is searching the name of a building; seeing it set in
+   Lora, spelled correctly, with the town beneath, is the moment they
+   know they are in the right place. So the names are display type, not
+   list items - each on a crimson rule, the same device the H-2A
+   statements use, with the town small and quiet underneath.
+   ============================================================ */
+.page-habeas .sec-facilities { background: var(--color-mist); }
+.page-habeas .fac-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(36px, 5vw, 76px);
+  align-items: center;
+}
+.page-habeas .fac-head .copy-h2 { max-width: 14ch; margin-bottom: 20px; }
+.page-habeas .fac-head .copy-body { font-size: 16px; max-width: 46ch; }
+.page-habeas .fac-note { margin-top: 12px; color: var(--color-muted); }
+.page-habeas .fac-cta { margin-top: clamp(24px, 3vw, 32px); }
+
+.page-habeas .fac-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.4vw, 26px);
+}
+.page-habeas .fac-item {
+  padding: 4px 0 6px 24px;
+  border-left: 2px solid var(--color-crimson);
+}
+.page-habeas .fac-item__name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.2vw, 27px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+.page-habeas .fac-item__place {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   TWO COURTS
+   The site's process pattern, unchanged. The difference between
+   immigration court and federal court is the biggest gap in the
+   reader's understanding, and a numbered list is how this site explains
+   any sequence.
+   ============================================================ */
+.page-habeas .sec-courts {
+  background: var(--navy-900);
+  color: var(--color-paper);
+}
+.page-habeas .sec-courts .copy-h2 { max-width: 18ch; }
+.page-habeas .courts-cta { margin-top: clamp(26px, 3vw, 34px); }
+.page-habeas .sec-courts .copy-card-h { max-width: 26ch; }
+
+/* ============================================================
+   TRANSFERS
+   Centred and open between two dense sections. This is the page's only
+   urgency argument, so it gets air rather than competition.
+   ============================================================ */
+.page-habeas .sec-transfer { background: var(--color-paper); }
+.page-habeas .sec-transfer .copy-h2 {
+  max-width: 20ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-habeas .sec-transfer .copy-lead {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 56ch;
+}
+.page-habeas .transfer-cta { margin-top: clamp(24px, 3vw, 32px); }
+
+/* ============================================================
+   WHAT HAPPENS WHEN YOU CALL
+   A track: one rule running the width of the section, interrupted by
+   the three numerals sitting on it. The line is the sequence.
+   ============================================================ */
+.page-habeas .sec-steps { background: var(--color-mist); }
+.page-habeas .sec-steps .copy-h2 { max-width: 22ch; }
+.page-habeas .track {
+  position: relative;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3.5vw, 48px);
+}
+.page-habeas .track::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 16px;
+  height: 1px;
+  background: var(--color-line);
+}
+.page-habeas .track__step { position: relative; }
+.page-habeas .track__num {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-crimson);
+  background: var(--color-mist);
+  padding-right: 14px;
+  margin-bottom: 16px;
+}
+.page-habeas .track__t {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-ink);
+  max-width: 34ch;
+}
+.page-habeas .sec-steps .sec-cta { margin-top: clamp(32px, 4vw, 48px); }
+
+/* ============================================================
+   THE ATTORNEY
+   No portrait yet, so the plate holds the firm's monogram on the navy
+   portrait grade rather than a grey box stamped PLACEHOLDER. Drop an
+   <img> in place of the mark when the photograph arrives. Credentials
+   are a ledger: label left, value right, hairline between.
+   ============================================================ */
+.page-habeas .sec-gina { background: var(--color-paper); }
+.page-habeas .gina-frame { overflow: hidden; }
+.page-habeas .gina-frame .photo-plane__label { display: none; }
+.page-habeas .gina-frame__mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(96px, 26%, 150px);
+  height: auto;
+  transform: translate(-50%, -50%);
+  opacity: 0.22;
+  z-index: 2;
+}
+.page-habeas .gina-media .gina-name {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.2vw, 27px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  margin: 22px 0 4px;
+}
+.page-habeas .gina-media .gina-role {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+  margin: 0;
+}
+.page-habeas .attorney-copy .copy-h2 {
+  font-size: clamp(26px, 3vw, 40px);
+  max-width: 22ch;
+  margin-bottom: clamp(24px, 3vw, 32px);
+}
+.page-habeas .attorney-copy .soft-link {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 11px 0;
+}
+.page-habeas .ledger { border-top: 1px solid var(--color-line); }
+.page-habeas .ledger__row {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 20px;
+  align-items: baseline;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+.page-habeas .ledger__k {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+}
+.page-habeas .ledger__v {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--color-ink);
+}
+
+/* ============================================================
+   FAQ
+   Same correction as the H-2A page: a closed item carried 44px of empty
+   panel because the answer's bottom margin sits outside the collapsing
+   grid row. Worth promoting into site.css - every page has this gap.
+   ============================================================ */
+.page-habeas .sec-faq { background: var(--color-paper); }
+.page-habeas .faq-item__a {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  transition: opacity 0.35s ease, transform 0.4s ease,
+    margin-bottom 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    padding-bottom 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.page-habeas .faq-item.is-open .faq-item__a {
+  margin-bottom: 26px;
+  padding-bottom: 4px;
+}
+
+/* ============================================================
+   FINAL CALL
+   Identical construction to the homepage close.
+   ============================================================ */
+.page-habeas .final-inner .sec-rule {
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-habeas .final-inner .copy-h1 {
+  font-size: clamp(32px, 4.6vw, 60px);
+  max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 900px) {
+  .page-habeas .fac-layout,
+  .page-habeas .attorney-layout,
+  .page-habeas .track {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .page-habeas .callnow__cta { width: 100%; text-align: center; }
+  .page-habeas .fac-item__name { font-size: 20px; }
+
+  /* The track turns on its side: rule down the left, numerals on it,
+     copy indented past both. */
+  .page-habeas .track { gap: 0; }
+  .page-habeas .track::before {
+    left: 13px;
+    right: auto;
+    top: 6px;
+    bottom: 22px;
+    width: 1px;
+    height: auto;
+  }
+  .page-habeas .track__step { padding: 0 0 26px 44px; }
+  .page-habeas .track__step:last-child { padding-bottom: 0; }
+  .page-habeas .track__num {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0 0 6px;
+    font-size: 22px;
+  }
+  .page-habeas .track__t { max-width: none; }
+
+  .page-habeas .gina-frame { aspect-ratio: 3 / 2; }
+  .page-habeas .ledger__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+    padding: 14px 0;
+  }
+
+  .page-habeas .sec-cta .cta-btn,
+  .page-habeas .fac-cta,
+  .page-habeas .courts-cta,
+  .page-habeas .transfer-cta { width: 100%; text-align: center; }
+
+  /* The site hero is built for short headlines. Tighten the block so the
+     call button clears the fold. */
+  .page-habeas .sec-hero { min-height: 0; }
+  .page-habeas .hero-content {
+    padding-top: calc(var(--header-h) + 40px);
+    padding-bottom: clamp(40px, 7vh, 64px);
+  }
+  .page-habeas .hero-brand { font-size: 22px; margin-bottom: 14px; }
+  .page-habeas .hero-brand::after { margin-top: 12px; }
+  .page-habeas .hero-copy .copy-lead { font-size: 16px; max-width: none; }
+  .page-habeas .hero-copy .cta-btn { width: 100%; text-align: center; }
+  .page-habeas .hero-media { transform: none !important; }
+}
+
+@media (max-width: 560px) {
+  /* site.css stacks the trust marks into a column below 560px; on a
+     landing page that wastes three lines above the call button. */
+  .page-habeas .hero-trust {
+    flex-direction: row;
+    gap: 6px 0;
+    font-size: 12px;
+  }
+  .page-habeas .hero-trust span { padding: 0; border-left: none; }
+  .page-habeas .hero-trust span::before { display: none; }
+  .page-habeas .hero-trust span:not(:last-child)::after {
+    content: "\00b7";
+    display: inline-block;
+    padding: 0 9px;
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-habeas .hero-media { transform: none !important; }
+}

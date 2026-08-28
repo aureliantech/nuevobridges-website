@@ -1,0 +1,7 @@
+﻿Unsplash stock placeholders (Unsplash License) — replace with firm photography when available.
+
+- crop-cattle.jpg — cattle grazing (_GZWxuxysOk)
+- crop-vegetables.jpg — multi-worker vegetable harvest crew (vkmOjr_AoS0)
+- crop-greens.jpg — leafy greens / lettuce rows (xZqfw-VXnYE)
+
+- crew-harvest.jpg — derived crop of crop-vegetables.jpg (vkmOjr_AoS0). Top and right cropped to remove the palm and ridgeline that placed the shot outside the U.S. Replace with client photography when available.

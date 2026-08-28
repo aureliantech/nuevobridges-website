@@ -1,0 +1,184 @@
+/* About — page-unique objects (credibility seats + friction screen)
+   Shared chrome/type/CTA/hero/final live in site.css */
+
+/* Hero eyebrow under brand (founder label) */
+.page-about .hero-copy .eyebrow {
+  margin-bottom: 14px;
+}
+.page-about .hero-copy .eyebrow.on-dark {
+  color: var(--navy-200);
+}
+
+/* —— Credibility seats: editorial numbered list (not 3-up cards) —— */
+.page-about .sec-seats {
+  background: var(--color-paper);
+  padding-bottom: clamp(48px, 6vw, 72px);
+}
+.page-about .seats-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 820px;
+  margin-inline: auto;
+}
+.page-about .seats-item {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 20px 28px;
+  padding: 36px 0;
+  border-top: 1px solid rgba(0, 26, 77, 0.12);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+.page-about .seats-item:last-child {
+  border-bottom: 1px solid rgba(0, 26, 77, 0.12);
+}
+.page-about .seats-item:hover {
+  border-color: rgba(152, 24, 0, 0.45);
+  background: rgba(0, 26, 77, 0.02);
+}
+.page-about .seats-item .ghost-num {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--navy-100);
+  transition: color 0.3s ease, transform 0.35s ease;
+}
+.page-about .seats-item:hover .ghost-num {
+  color: rgba(152, 24, 0, 0.45);
+  transform: scale(1.05);
+  transform-origin: left top;
+}
+.page-about .seats-item .copy-card-h {
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+.page-about .seats-item:hover .copy-card-h {
+  transform: translateX(4px);
+}
+.page-about .seats-item .copy-body {
+  max-width: 48ch;
+  margin: 0;
+}
+
+/* Stronger rise + stagger (shared .reveal / .is-in) */
+.page-about .seats-item.reveal:not(.is-in) {
+  transform: translateY(36px);
+}
+.page-about .sec-seats .sec-head.reveal {
+  transition-delay: 0ms;
+}
+.page-about .seats-item.reveal:nth-child(1) { transition-delay: 80ms; }
+.page-about .seats-item.reveal:nth-child(2) { transition-delay: 170ms; }
+.page-about .seats-item.reveal:nth-child(3) { transition-delay: 260ms; }
+.page-about .seats-media-wrap.reveal {
+  transition-delay: 340ms;
+}
+
+.page-about .seats-media-wrap {
+  margin-top: clamp(40px, 5vw, 56px);
+  max-width: 920px;
+  margin-inline: auto;
+}
+.page-about .seats-media {
+  min-height: min(42vh, 380px);
+  border-radius: 2px;
+  outline: 1px solid rgba(0, 26, 77, 0.1);
+  outline-offset: 10px;
+  transition: outline-color 0.35s ease, outline-offset 0.35s ease, filter 0.4s ease;
+}
+.page-about .seats-media-wrap:hover .seats-media {
+  outline-color: rgba(152, 24, 0, 0.35);
+  outline-offset: 14px;
+  filter: brightness(1.06);
+}
+
+/* —— Friction screen: asymmetric argument + framed media —— */
+.page-about .sec-friction {
+  background:
+    linear-gradient(180deg, var(--navy-50) 0%, var(--color-paper) 100%);
+}
+.page-about .friction-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+.page-about .friction-argument .copy-h2 {
+  max-width: 14ch;
+}
+.page-about .friction-argument .copy-lead {
+  margin-top: 12px;
+  margin-bottom: 32px;
+  max-width: 40ch;
+}
+.page-about .friction-media-wrap {
+  position: sticky;
+  top: calc(var(--header-h) + 28px);
+}
+.page-about .friction-media {
+  min-height: min(58vh, 520px);
+  border-radius: 2px;
+  outline: 1px solid rgba(0, 26, 77, 0.1);
+  outline-offset: 10px;
+  transition: outline-color 0.35s ease, outline-offset 0.35s ease, filter 0.4s ease;
+}
+.page-about .friction-media-wrap:hover .friction-media {
+  outline-color: rgba(152, 24, 0, 0.35);
+  outline-offset: 14px;
+  filter: brightness(1.08);
+}
+.page-about .friction-media-wrap:hover .photo-plane::before {
+  filter: saturate(1.15);
+}
+
+@media (max-width: 960px) {
+  .page-about .seats-item {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 12px 16px;
+    padding: 28px 0;
+  }
+  .page-about .seats-media {
+    min-height: 220px;
+    outline-offset: 6px;
+  }
+  .page-about .friction-layout {
+    grid-template-columns: 1fr;
+  }
+  .page-about .friction-media-wrap {
+    position: static;
+  }
+  .page-about .friction-media {
+    min-height: 280px;
+    outline-offset: 6px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-about .hero-copy .copy-h1 {
+    font-size: clamp(28px, 7.2vw, 40px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-about .seats-item.reveal:not(.is-in) {
+    transform: none;
+  }
+  .page-about .seats-item.reveal,
+  .page-about .seats-media-wrap.reveal {
+    transition-delay: 0ms;
+  }
+  .page-about .seats-item:hover .ghost-num,
+  .page-about .seats-item:hover .copy-card-h,
+  .page-about .seats-media-wrap:hover .seats-media,
+  .page-about .friction-media-wrap:hover .friction-media {
+    transform: none;
+    filter: none;
+  }
+}
