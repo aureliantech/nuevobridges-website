@@ -1,3 +1,43 @@
+/* The hero carries the same photograph the H-2A page leads with:
+   people at work rather than a courtroom or a handshake. On a reviews
+   page the subject is the clients, and this is the closest the library
+   gets to them.
+
+   Held right so the headline sits on open ground, and graded down hard
+   because the file is bright daylight under white type. */
+.page-reviews .sec-hero .photo-plane--photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 68% 46%;
+  filter: saturate(0.74) contrast(1.05) brightness(0.6);
+}
+.page-reviews .sec-hero .photo-plane--photo::before,
+.page-reviews .sec-hero .photo-plane--photo::after,
+.page-reviews .sec-hero .photo-plane--photo .photo-plane__label { display: none; }
+.page-reviews .hero-copy { max-width: 38rem; }
+.page-reviews .hero-copy .copy-h1 {
+  font-size: clamp(32px, 4.4vw, 58px);
+  line-height: 1.06;
+  text-indent: -0.02em;
+}
+.page-reviews .hero-copy .copy-lead { max-width: 44ch; }
+.page-reviews .hero-note {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: rgba(217, 227, 242, 0.82);
+}
+@media (max-width: 900px) {
+  .page-reviews .hero-copy .copy-lead { font-size: 16px; max-width: none; }
+  .page-reviews .hero-copy .cta-btn { width: 100%; text-align: center; }
+  .page-reviews .hero-media { transform: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-reviews .hero-media { transform: none !important; }
+}
+
 /* Reviews — page-unique objects (centered hero + stub quote grid)
    Shared chrome/type/CTA/mid-cta/final live in site.css */
 

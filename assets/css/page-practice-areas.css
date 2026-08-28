@@ -1,61 +1,207 @@
-/* Practice Areas hub — centered hero + tile rhythm
-   Shared chrome/type/CTA/cards live in ../site.css */
+/* Practice areas — the routing page.
 
-.page-hub .sec-hero .hero-content {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  text-align: center;
-  padding-bottom: clamp(72px, 12vh, 120px);
+   It uses the same card objects as the homepage section, lifted rather
+   than reimplemented: three cards, farm labor featured, the other two
+   sharing a row. Two pages doing the same job should not drift apart,
+   and each card's headline is the headline of the page it leads to, so
+   the promise a visitor clicks is the promise they land on.
+
+   The old version of this page had four grey placeholder plates and
+   descriptions that no longer matched any page on the site.
+   ============================================================ */
+
+/* ============================================================
+   HERO
+   The courthouse facade, held right. This page serves all three
+   practices, so the image cannot favour one of them.
+   ============================================================ */
+.page-hub .sec-hero .photo-plane--photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 66% 46%;
+  filter: saturate(0.68) contrast(1.07) brightness(0.56);
 }
-.page-hub .hero-copy {
-  max-width: min(36rem, 94vw);
-  margin: 0 auto;
-}
+.page-hub .sec-hero .photo-plane--photo::before,
+.page-hub .sec-hero .photo-plane--photo::after,
+.page-hub .sec-hero .photo-plane--photo .photo-plane__label { display: none; }
+.page-hub .hero-copy { max-width: 38rem; }
 .page-hub .hero-copy .copy-h1 {
-  max-width: none;
+  font-size: clamp(32px, 4.4vw, 58px);
+  line-height: 1.06;
+  text-indent: -0.02em;
 }
-.page-hub .hero-copy .hero-brand {
-  margin-left: auto;
-  margin-right: auto;
-}
-.page-hub .hero-copy .hero-brand::after {
-  margin-left: auto;
-  margin-right: auto;
-}
-.page-hub .hero-copy .eyebrow {
-  margin-bottom: 14px;
-}
-.page-hub .hero-copy .eyebrow.on-dark {
-  color: var(--navy-200);
-}
-.page-hub .hero-copy .copy-lead {
-  margin-left: auto;
-  margin-right: auto;
-}
-.page-hub .hero-copy .cta-btn {
-  margin-top: 8px;
+.page-hub .hero-copy .copy-lead { max-width: 46ch; }
+.page-hub .hero-note {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: rgba(217, 227, 242, 0.82);
 }
 
-.page-hub .sec-hub-tiles {
+/* ============================================================
+   WHERE TO START
+   The heart of the page, because routing is half the job.
+
+   Farm labor gets a full-width feature and the other two share a row
+   beneath it. That hierarchy is the brief made visible: three equal
+   cards would say the three practices matter equally, and they do not.
+
+   Each card's headline is lifted from the page it leads to, so the
+   promise a visitor clicks is the promise they land on.
+   ============================================================ */
+.page-hub .sec-practice { background: var(--color-mist); }
+.page-hub .sec-practice .sec-head { margin-bottom: clamp(28px, 3.5vw, 44px); }
+
+.page-hub .feature-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: center;
+  padding: clamp(22px, 2.6vw, 30px);
   background: var(--color-paper);
-  padding-top: clamp(56px, 8vw, 88px);
-  padding-bottom: clamp(56px, 8vw, 88px);
+  border: 1px solid var(--neutral-100);
+  transition: border-color 0.25s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.page-hub .sec-hub-tiles .pa-grid {
-  margin-top: 0;
+.page-hub .feature-card:hover {
+  border-color: var(--color-crimson);
+  transform: translateY(-3px);
 }
-.page-hub .sec-hub-tiles .pa-mid {
-  margin-top: 40px;
+/* Each card carries the hero of the page it leads to. Clicking a
+   picture and landing on that same picture is how a visitor knows in
+   half a second that they arrived where they meant to - and it costs
+   no extra files, since all three are already needed elsewhere.
+
+   The cards are requested from the CDN at their own aspect ratios so
+   the browser barely crops, and graded a touch down and cool so three
+   photographs from three different shoots sit together on one row
+   without one shouting over the others. */
+.page-hub .feature-card__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+}
+.page-hub .feature-card__media img,
+.page-hub .pair-card__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.04) brightness(0.94);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.page-hub .feature-card__media img { object-position: 50% 46%; }
+.page-hub .pair-card__media img { object-position: 50% 48%; }
+/* A slow push on hover, so the card reads as a door rather than a
+   picture with a link under it. */
+.page-hub .feature-card:hover .feature-card__media img,
+.page-hub .pair-card:hover .pair-card__media img { transform: scale(1.03); }
+.page-hub .photo-plane--photo::before,
+.page-hub .photo-plane--photo::after,
+.page-hub .photo-plane--photo .photo-plane__label { display: none; }
+.page-hub .feature-card__h {
+  font-size: clamp(24px, 2.8vw, 36px);
+  max-width: 18ch;
+  margin: 10px 0 14px;
+}
+.page-hub .feature-card .copy-body { max-width: 46ch; }
+.page-hub .feature-card .slot-label { margin-top: 18px; display: inline-block; }
+
+.page-hub .pair-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 2.6vw, 32px);
+  margin-top: clamp(20px, 2.6vw, 32px);
+}
+.page-hub .pair-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-paper);
+  border: 1px solid var(--neutral-100);
+  transition: border-color 0.25s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.page-hub .pair-card:hover {
+  border-color: var(--color-crimson);
+  transform: translateY(-3px);
+}
+.page-hub .pair-card__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+.page-hub .pair-card__body {
+  padding: clamp(20px, 2.2vw, 28px);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+/* Lora, like the feature card above them. Three cards in one section
+   reading in two different faces made the row look assembled from two
+   designs; the pair are simply a smaller version of the same idea. */
+.page-hub .pair-card__h {
+  font-size: clamp(19px, 1.9vw, 24px);
+  line-height: 1.2;
+  margin: 8px 0 12px;
+  max-width: 22ch;
+}
+.page-hub .pair-card .copy-body { font-size: 15px; }
+.page-hub .pair-card .slot-label { margin-top: auto; padding-top: 18px; }
+
+/* A quiet strip rather than a fourth card. The practice is broader than
+   these three, but giving that equal visual weight would undo the
+   hierarchy above it. */
+.page-hub .practice-else {
+  margin: clamp(24px, 3vw, 34px) 0 0;
+  padding-top: clamp(20px, 2.4vw, 26px);
+  border-top: 1px solid var(--neutral-100);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-muted);
+  max-width: 74ch;
+}
+.page-hub .practice-else strong { color: var(--color-ink); }
+
+
+/* ============================================================
+   FINAL CALL
+   ============================================================ */
+.page-hub .final-inner .sec-rule {
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-hub .final-inner .copy-h1 {
+  font-size: clamp(32px, 4.6vw, 60px);
+  max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Hub hero has no trust row — keep entrance delays tidy */
-.page-hub .hero-enter .hero-trust {
-  display: none;
-}
-
-@media (max-width: 560px) {
-  .page-hub .hero-copy .copy-h1 {
-    font-size: clamp(28px, 7.2vw, 40px);
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 900px) {
+  .page-hub .feature-card,
+  .page-hub .pair-grid,
+  .page-hub .attorney-layout {
+    grid-template-columns: minmax(0, 1fr);
   }
+  .page-hub .feature-card { gap: 22px; }
+  .page-hub .feature-card__media { aspect-ratio: 16 / 9; }
+  .page-hub .pair-card__media { aspect-ratio: 3 / 2; }
+
+  .page-hub .hero-copy .copy-lead { font-size: 16px; max-width: none; }
+  .page-hub .hero-copy .cta-btn { width: 100%; text-align: center; }
+  .page-hub .hero-media { transform: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-hub .hero-media { transform: none !important; }
+  .page-hub .feature-card:hover,
+  .page-hub .pair-card:hover { transform: none; }
+  .page-hub .feature-card:hover .feature-card__media img,
+  .page-hub .pair-card:hover .pair-card__media img { transform: none; }
 }

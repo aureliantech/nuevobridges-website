@@ -34,9 +34,9 @@ a mail script. Field names are `name`, `email`, `phone`, `testimonial`,
 `rating`, `consent`.
 
 **5. Reviews are still sample copy.**
-`reviews.html` and any review carousel contain content marked SAMPLE.
-Publishing invented testimonials is a bar-rules problem, not a taste one.
-Remove them or replace with real ones before launch.
+`reviews.html` carries four quotes marked SAMPLE. Publishing invented
+testimonials is a bar-rules problem, not a taste one. Replace with real
+ones, or take the page out of the nav, before launch.
 
 ---
 
@@ -79,7 +79,8 @@ as finished rather than unfinished. When the photograph arrives, swap the
 
 This is the single most valuable missing asset on the site.
 
-**Real client photography.** The three farm and highway images are stock.
+**Real client photography.** The farm, courthouse and highway images are
+stock.
 One photograph from an actual client operation would outperform all of
 them, and it is the only imagery a competitor cannot also be using.
 
@@ -89,12 +90,16 @@ them, and it is the only imagery a competitor cannot also be using.
 
 ```
 index.html                  Homepage — routing and a phone call
+practice-areas.html         The same routing cards, as a landing page
 h2a-visas.html              Farm labor (nationwide)
 ice-detention-habeas.html   ICE detention (nationwide)
 truck-accidents.html        Truck accidents (New Mexico only)
+about.html                  Gina, the through-line, credentials
+contact.html                Phone, hours, coverage
+faq.html                    20 questions across five clusters
 legal-interns.html          Internship recruitment, with WCL
 submit-a-testimonial.html   Testimonial form
-about.html  contact.html  faq.html  reviews.html  practice-areas.html
+reviews.html                Still SAMPLE quotes
 
 assets/css/
   tokens.css                Colour, type scale, spacing
@@ -109,6 +114,11 @@ assets/images/h2a/          Local photography + ATTRIBUTION.txt
 left-rule list, the call-now band and the monogram portrait plate are
 used identically across pages. If one changes, change it everywhere or
 the pages stop reading as one site.
+
+**Structured data is generated from page content.** Every JSON-LD
+FAQPage block was rebuilt from the questions actually on each page, so
+the two cannot drift. If you edit an FAQ answer, update the schema in the
+same file's `<head>` — or the rich result will quote copy nobody can find.
 
 **A fix worth promoting into `site.css`.** The FAQ accordion left ~44px
 of empty panel on every closed item, because the answer's bottom margin

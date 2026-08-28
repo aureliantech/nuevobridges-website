@@ -1,164 +1,182 @@
-/* Contact — page-unique objects (phone channel + service area)
-   Shared chrome/type/CTA/hero/final live in site.css */
+/* Contact — page-specific objects.
 
-/* Hero eyebrow under brand */
-.page-contact .hero-copy .eyebrow {
-  margin-bottom: 14px;
+   The shortest page on the site, and deliberately so. Someone here has
+   already decided to get in touch; the job is to hand them the number
+   and answer two questions - when can I call, and do you cover me.
+   Four sections, no persuasion. */
+
+/* ============================================================
+   HERO
+   Full height, like every other page. A shortened hero looked tempting
+   on a page this brief, but the site centres hero content against a
+   full-viewport block - cut the height and the brand line rides up
+   under the sticky header.
+   ============================================================ */
+.page-contact .hero-copy { max-width: 36rem; }
+.page-contact .hero-copy .copy-h1 {
+  font-size: clamp(32px, 4.4vw, 56px);
+  line-height: 1.06;
+  text-indent: -0.02em;
 }
-.page-contact .hero-copy .eyebrow.on-dark {
-  color: var(--navy-200);
-}
-.page-contact .hero-micro {
-  margin-top: 18px;
-  margin-left: 0;
-  margin-right: 0;
-  text-align: left;
-  max-width: 36ch;
-  color: var(--navy-100);
-  opacity: 0.92;
+.page-contact .hero-copy .copy-lead { max-width: 42ch; }
+.page-contact .hero-note {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: rgba(217, 227, 242, 0.82);
 }
 
-/* —— Phone channel: content panel (not a mega-button) —— */
-.page-contact .sec-channel {
-  background:
-    linear-gradient(165deg, var(--navy-50) 0%, var(--color-mist) 55%, var(--color-paper) 100%);
-  padding-top: clamp(56px, 8vw, 88px);
-  padding-bottom: clamp(56px, 8vw, 88px);
-}
-.page-contact .channel-panel {
-  max-width: 640px;
-  margin: 0 auto;
-  text-align: center;
-  padding: clamp(36px, 5vw, 56px) clamp(28px, 4vw, 48px);
-  background: var(--color-paper);
-  border: 1px solid rgba(0, 26, 77, 0.1);
-  border-radius: 2px;
-  box-shadow: 0 18px 48px rgba(0, 15, 46, 0.06);
-  position: relative;
-}
-.page-contact .channel-panel::before {
-  content: "";
-  position: absolute;
-  left: clamp(28px, 4vw, 48px);
-  right: clamp(28px, 4vw, 48px);
-  top: 0;
-  height: 2px;
-  background: var(--color-crimson);
-  opacity: 0.85;
-}
-.page-contact .channel-panel .copy-h2 {
-  max-width: 22ch;
+/* ============================================================
+   BY PHONE
+   The number set at display scale, as the page's largest element. On a
+   contact page the phone number is the content; a button with the
+   number hidden inside it makes you hunt for the thing you came for.
+
+   The line under it names the intake step openly, so the page tells the
+   same story the practice pages and the about page tell.
+   ============================================================ */
+.page-contact .sec-reach { background: var(--color-paper); }
+.page-contact .reach-inner { text-align: center; }
+.page-contact .reach-inner .sec-rule {
   margin-left: auto;
   margin-right: auto;
 }
-.page-contact .channel-body {
-  margin: 16px auto 0;
-  max-width: 42ch;
-  color: var(--neutral-500);
-}
-.page-contact .channel-number {
-  display: block;
-  margin: 28px auto 0;
+.page-contact .reach-number {
+  display: inline-block;
+  margin: 4px 0 18px;
   font-family: var(--font-display);
-  font-size: clamp(32px, 5vw, 48px);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  color: var(--color-navy-deep);
-  text-decoration: none;
-  transition: color 0.25s ease, letter-spacing 0.25s ease;
+  font-size: clamp(38px, 6vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-ink);
+  transition: color 0.22s ease;
 }
-.page-contact .channel-number:hover {
-  color: var(--color-crimson);
-  letter-spacing: -0.01em;
-}
-.page-contact .channel-panel .cta-btn {
-  margin-top: 20px;
-}
-.page-contact .channel-panel .micro {
-  margin-top: 16px;
-  color: var(--neutral-500);
+.page-contact .reach-number:hover { color: var(--color-crimson); }
+.page-contact .reach-lead {
+  max-width: 46ch;
+  margin: 0 auto;
 }
 
-/* —— Service area: asymmetric argument + framed corridor plane —— */
-.page-contact .sec-area {
-  background: var(--color-paper);
+/* Four zones rather than one. The practice is nationwide, and "7 AM to
+   7 PM Mountain" makes a caller in Georgia do arithmetic. */
+.page-contact .reach-hours {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: clamp(30px, 4vw, 42px) auto 0;
+  max-width: 40rem;
+  background: var(--color-line);
+  border: 1px solid var(--color-line);
 }
+.page-contact .reach-hours li {
+  background: var(--color-paper);
+  padding: 16px 10px;
+}
+.page-contact .reach-hours__z {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-muted);
+  margin-bottom: 6px;
+}
+.page-contact .reach-hours__t {
+  display: block;
+  font-size: 14px;
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+.page-contact .reach-lang {
+  margin: clamp(18px, 2.2vw, 24px) 0 0;
+  font-size: 15px;
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   WHERE WE WORK
+   Coverage stated by practice rather than by geography. The old version
+   led with a state, which is the wrong first fact for a practice that
+   files federal cases anywhere - and it made a farm in Georgia wonder
+   whether distance was a problem.
+
+   The third item is the useful one: someone whose situation does not
+   match either line still has somewhere to go.
+   ============================================================ */
+.page-contact .sec-area { background: var(--color-mist); }
 .page-contact .area-layout {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(40px, 6vw, 80px);
-  align-items: start;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
 }
-.page-contact .area-argument .copy-h2 {
-  max-width: 16ch;
+.page-contact .area-head .copy-h2 { max-width: 14ch; }
+.page-contact .area-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.2vw, 24px);
 }
-.page-contact .area-argument .copy-lead {
-  margin-top: 12px;
-  margin-bottom: 20px;
-  max-width: 42ch;
+.page-contact .area-item {
+  padding: 3px 0 4px 22px;
+  border-left: 2px solid var(--color-crimson);
 }
-.page-contact .area-argument .copy-body {
-  max-width: 44ch;
-  margin-bottom: 12px;
+.page-contact .area-item__lead {
+  display: block;
+  font-size: clamp(16px, 1.5vw, 18px);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-ink);
 }
-.page-contact .area-hours {
-  margin-top: 8px;
-  font-weight: 700;
-  color: var(--color-navy-deep);
-  letter-spacing: 0.02em;
+.page-contact .area-item__body {
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--color-muted);
 }
-.page-contact .area-media-wrap {
-  position: sticky;
-  top: calc(var(--header-h) + 28px);
+.page-contact .area-item--key {
+  background: var(--color-navy-deep);
+  padding: 20px 24px 21px 22px;
+  margin-top: clamp(6px, 1vw, 10px);
 }
-.page-contact .area-media {
-  min-height: min(58vh, 520px);
-  border-radius: 2px;
-  outline: 1px solid rgba(0, 26, 77, 0.1);
-  outline-offset: 10px;
-  transition: outline-color 0.35s ease, outline-offset 0.35s ease, filter 0.4s ease;
+.page-contact .area-item--key .area-item__lead { color: var(--color-paper); }
+.page-contact .area-item--key .area-item__body { color: var(--navy-100); }
+
+/* ============================================================
+   FINAL CALL
+   ============================================================ */
+.page-contact .final-inner .sec-rule {
+  margin-left: auto;
+  margin-right: auto;
 }
-.page-contact .area-media-wrap:hover .area-media {
-  outline-color: rgba(152, 24, 0, 0.35);
-  outline-offset: 14px;
-  filter: brightness(1.08);
-}
-.page-contact .area-media-wrap:hover .photo-plane::before {
-  filter: saturate(1.15);
+.page-contact .final-inner .copy-h1 {
+  font-size: clamp(32px, 4.6vw, 60px);
+  max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-@media (max-width: 960px) {
-  .page-contact .area-layout {
-    grid-template-columns: 1fr;
-  }
-  .page-contact .area-media-wrap {
-    position: static;
-  }
-  .page-contact .area-media {
-    min-height: 280px;
-    outline-offset: 6px;
-  }
-  .page-contact .channel-panel {
-    padding: 32px 24px;
-  }
-}
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 900px) {
+  .page-contact .area-layout { grid-template-columns: minmax(0, 1fr); }
+  .page-contact .reach-hours { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-@media (max-width: 560px) {
-  .page-contact .hero-copy .copy-h1 {
-    font-size: clamp(28px, 7.2vw, 40px);
+  .page-contact .sec-hero { min-height: 0; }
+  .page-contact .hero-content {
+    padding-top: calc(var(--header-h) + 40px);
+    padding-bottom: clamp(40px, 7vh, 64px);
   }
-  .page-contact .channel-number {
-    font-size: clamp(28px, 8vw, 36px);
-  }
+  .page-contact .hero-brand { font-size: 22px; margin-bottom: 14px; }
+  .page-contact .hero-brand::after { margin-top: 12px; }
+  .page-contact .hero-copy .copy-lead { font-size: 16px; max-width: none; }
+  .page-contact .hero-copy .cta-btn { width: 100%; text-align: center; }
+  .page-contact .hero-media { transform: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page-contact .channel-number:hover {
-    letter-spacing: -0.02em;
-  }
-  .page-contact .area-media-wrap:hover .area-media {
-    filter: none;
-    outline-offset: 10px;
-  }
+  .page-contact .hero-media { transform: none !important; }
 }

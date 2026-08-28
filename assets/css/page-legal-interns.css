@@ -12,7 +12,28 @@
 
 /* ============================================================
    HERO
+   Stone columns from below - the one courthouse image not already used
+   elsewhere on the site. Deliberately not the facade the habeas and FAQ
+   pages carry: a recruitment page competing for law students should not
+   look like a practice page they have already seen.
+
+   Columns rather than a campus or a library because the promise here is
+   federal litigation, not study. Graded down hard - pale stone under
+   white type.
    ============================================================ */
+.page-interns .sec-hero .photo-plane--photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 44%;
+  filter: saturate(0.6) contrast(1.08) brightness(0.54);
+}
+.page-interns .sec-hero .photo-plane--photo::before,
+.page-interns .sec-hero .photo-plane--photo::after,
+.page-interns .sec-hero .photo-plane--photo .photo-plane__label { display: none; }
+
 .page-interns .hero-copy { max-width: 40rem; }
 .page-interns .hero-copy .copy-h1 {
   font-size: clamp(32px, 4.4vw, 58px);

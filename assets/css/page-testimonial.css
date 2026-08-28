@@ -7,10 +7,11 @@
 
 /* ============================================================
    HERO
-   Half height, no call button. A phone number here would compete with
-   the only action on the page.
+   Full height, like every other page, and no call button - a phone
+   number here would compete with the only action on the page. The
+   height matters: the site centres hero content against a full
+   viewport, so a shortened hero pushes the brand line under the header.
    ============================================================ */
-.page-testimonial .sec-hero--short { min-height: 62vh; }
 .page-testimonial .hero-copy { max-width: 36rem; }
 .page-testimonial .hero-copy .copy-h1 {
   font-size: clamp(34px, 4.6vw, 60px);
@@ -129,7 +130,7 @@
    MOBILE
    ============================================================ */
 @media (max-width: 900px) {
-  .page-testimonial .sec-hero--short { min-height: 0; }
+  .page-testimonial .sec-hero { min-height: 0; }
   .page-testimonial .hero-content {
     padding-top: calc(var(--header-h) + 40px);
     padding-bottom: clamp(40px, 7vh, 64px);

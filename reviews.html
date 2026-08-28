@@ -132,8 +132,9 @@
   <main>
     <section class="sec-hero" aria-label="Client reviews" data-hero>
       <div class="hero-media" data-hero-parallax>
-        <div class="photo-plane grade-corridor" role="img" aria-label="Placeholder — photography pending">
-          <span class="photo-plane__label" aria-hidden="true">Placeholder</span>
+        <!-- TEMPORARY: Unsplash CDN. Replace with a local asset before launch. -->
+        <div class="photo-plane grade-corridor photo-plane--photo">
+          <img src="https://images.unsplash.com/photo-1605673349798-5580680c4dea?fm=jpg&q=82&w=2400&auto=format&fit=crop" alt="" width="2400" height="1600" fetchpriority="high" decoding="async" />
         </div>
       </div>
       <div class="hero-scrim" aria-hidden="true"></div>
@@ -141,8 +142,10 @@
         <div class="hero-copy hero-enter" id="hero-enter">
           <p class="hero-brand">NuevoBridges Law</p>
           <div class="eyebrow on-dark">What clients say</div>
-          <h1 class="copy-h1 on-dark">Client <em>reviews</em></h1>
-          <a class="cta-btn lg" href="tel:+15750000000" data-placeholder="phone">Call us</a>
+          <h1 class="copy-h1 on-dark">What clients say <em>about the work</em>.</h1>
+          <p class="copy-lead on-dark">A few notes from farms, families, and people who called after a crash.</p>
+          <a class="cta-btn lg" href="tel:+15750000000" data-placeholder="phone">Call 575-000-0000</a>
+          <p class="hero-note">Free call. No obligation.</p>
         </div>
       </div>
       <a class="hero-scroll" href="#reviews-grid" aria-label="Scroll to reviews">
@@ -179,14 +182,6 @@
       </div>
     </section>
 
-    <section class="sec-mid-cta reveal">
-      <div class="container narrow">
-        <h2 class="copy-h2">Ready to talk it through?</h2>
-        <p class="copy-lead mid-lead">You don’t need every detail figured out. Call when you’re ready.</p>
-        <a class="cta-btn ghost lg" href="tel:+15750000000" data-placeholder="phone">Call now</a>
-      </div>
-    </section>
-
     <section class="sec-final" id="call">
       <div class="final-atmosphere photo-plane grade-corridor" aria-hidden="true"></div>
       <div class="final-scrim" aria-hidden="true"></div>
@@ -196,7 +191,7 @@
         <h2 class="copy-h1 on-dark">Call NuevoBridges Law</h2>
         <p class="copy-lead on-dark">Tell us what’s going on. We’ll help you understand the next step.</p>
         <a class="cta-btn final" href="tel:+15750000000" data-placeholder="phone">Talk to us</a>
-        <div class="micro">No obligation. Hours 7 AM–7 PM Mountain.</div>
+        <div class="micro">Free call. No obligation. Se habla español.</div>
       </div>
     </section>
   </main>
