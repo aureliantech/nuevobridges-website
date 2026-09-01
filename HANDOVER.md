@@ -33,11 +33,6 @@ the `src`. All are free for commercial use (Unsplash / Pexels licences).
 a mail script. Field names are `name`, `email`, `phone`, `testimonial`,
 `rating`, `consent`.
 
-**5. Reviews are still sample copy.**
-`reviews.html` carries four quotes marked SAMPLE. Publishing invented
-testimonials is a bar-rules problem, not a taste one. Replace with real
-ones, or take the page out of the nav, before launch.
-
 ---
 
 ## Needs the attorney's sign-off
@@ -99,7 +94,6 @@ contact.html                Phone, hours, coverage
 faq.html                    20 questions across five clusters
 legal-interns.html          Internship recruitment, with WCL
 submit-a-testimonial.html   Testimonial form
-reviews.html                Still SAMPLE quotes
 
 assets/css/
   tokens.css                Colour, type scale, spacing
@@ -139,3 +133,9 @@ stylesheets. Every page with an accordion has the same gap.
   `prefers-reduced-motion: reduce`.
 - **Mobile hero tuning.** Every page tightens its hero below 900px so the
   call button clears the fold. If a headline gets longer, re-check it.
+
+---
+
+## Removed
+
+**The reviews page is off the site.** `reviews.html`, `assets/css/page-reviews.css` and `assets/js/reviews.js` were deleted, along with every drawer and footer link to them and the sitemap entry. The four testimonials on it were marked SAMPLE and were never real. Put the page back when there are genuine ones to publish — the submit-a-testimonial form is still live and still collects them.

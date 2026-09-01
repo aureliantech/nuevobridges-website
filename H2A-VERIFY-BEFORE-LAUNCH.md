@@ -49,9 +49,5 @@ how she wants to describe them to a first-time employer.
 
 ## Also changed
 
-- The three SAMPLE reviews are removed from this page. Fabricated testimonials
-  on an attorney's site are worse than none, and testimonial rules vary by
-  state bar.
-- `reviews.js` is no longer loaded on this page.
 - The "employers only" band under the hero, in English and Spanish, exists to
   cut the farm-worker calls she flagged as an intake problem.

@@ -15,7 +15,6 @@ Nine pages, one file each, at the top level:
 | `h2a-visas.html` | `assets/css/page-h2a-visas.css` | `/h2a-visas/` |
 | `ice-detention-habeas.html` | `assets/css/page-ice-detention-habeas.css` | `/ice-detention-habeas/` |
 | `truck-accidents.html` | `assets/css/page-truck-accidents.css` | `/truck-accidents/` |
-| `reviews.html` | `assets/css/page-reviews.css` | `/reviews/` |
 | `faq.html` | `assets/css/page-faq.css` | `/faq/` |
 | `contact.html` | `assets/css/page-contact.css` | `/contact/` |
 
@@ -50,7 +49,6 @@ Note: the three practice-area pages now sit at `/h2a-visas/` rather than
   `data-placeholder="phone"` — search that to find them all.
 - **Photography** — planes marked "Placeholder," including the founder
   portrait. Only the H-2A page has real photos.
-- **Reviews** — all marked SAMPLE.
 - Pages carry `noindex, nofollow` and `robots.txt` disallows crawling. Remove
   both before launch.
 
