@@ -23,7 +23,16 @@
   line-height: 1.06;
   text-indent: -0.02em;
 }
-.page-faq .hero-copy .copy-lead { max-width: 46ch; }
+.page-faq .hero-copy .copy-lead {
+  /* Centred hero: without auto margins a max-width pins the lead to the
+     left of the block, which reads as a misalignment rather than a
+     measure. */
+  margin: clamp(18px, 2.2vw, 26px) auto 0;
+  max-width: 48ch;
+  /* Two lines of near-equal length. Left alone, the measure orphans
+     "If" at the end of the first line. */
+  text-wrap: balance;
+}
 .page-faq .hero-note {
   margin: 14px 0 0;
   font-size: 13px;
