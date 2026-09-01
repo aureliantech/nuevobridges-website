@@ -203,14 +203,14 @@
 .page-home .sec-gina { background: var(--color-paper); }
 .page-home .gina-frame { overflow: hidden; }
 .page-home .gina-frame .photo-plane__label { display: none; }
-.page-home .gina-frame__mark {
+.page-home .gina-frame--photo { overflow: hidden; }
+.page-home .gina-portrait {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: clamp(96px, 26%, 150px);
-  height: auto;
-  transform: translate(-50%, -50%);
-  opacity: 0.22;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
   z-index: 2;
 }
 .page-home .gina-media .gina-name {

@@ -223,14 +223,14 @@
 .page-habeas .sec-gina { background: var(--color-paper); }
 .page-habeas .gina-frame { overflow: hidden; }
 .page-habeas .gina-frame .photo-plane__label { display: none; }
-.page-habeas .gina-frame__mark {
+.page-habeas .gina-frame--photo { overflow: hidden; }
+.page-habeas .gina-portrait {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: clamp(96px, 26%, 150px);
-  height: auto;
-  transform: translate(-50%, -50%);
-  opacity: 0.22;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
   z-index: 2;
 }
 .page-habeas .gina-media .gina-name {

@@ -302,14 +302,14 @@
 .page-truck .sec-gina { background: var(--color-paper); }
 .page-truck .gina-frame { overflow: hidden; }
 .page-truck .gina-frame .photo-plane__label { display: none; }
-.page-truck .gina-frame__mark {
+.page-truck .gina-frame--photo { overflow: hidden; }
+.page-truck .gina-portrait {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: clamp(96px, 26%, 150px);
-  height: auto;
-  transform: translate(-50%, -50%);
-  opacity: 0.22;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
   z-index: 2;
 }
 .page-truck .gina-media .gina-name {
