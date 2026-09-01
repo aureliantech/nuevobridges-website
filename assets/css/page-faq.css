@@ -160,3 +160,23 @@
     transition-delay: 0ms;
   }
 }
+
+/* ============================================================
+   ACCORDION COLLAPSE
+   A closed item was leaving ~30px of empty panel, because the answer's
+   bottom margin sits outside the collapsing grid row. The margin moves
+   to the open state so it animates with the row instead of holding the
+   panel open. The same correction is on the three practice pages; it
+   belongs in site.css eventually, since every accordion has it.
+   ============================================================ */
+.page-faq .faq-item__a {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  transition: opacity 0.35s ease, transform 0.4s ease,
+    margin-bottom 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    padding-bottom 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.page-faq .faq-item.is-open .faq-item__a {
+  margin-bottom: 26px;
+  padding-bottom: 4px;
+}
